@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Customer Access</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Access</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Reset and Styling */
         * {
@@ -16,28 +18,30 @@
 
         /* Body Styling */
         body {
-            width: 100%;
+            max-width: 100%;
             height: 100vh;
-            background: url(images/bluewave.jpg) no-repeat center/cover;
-            backdrop-filter: blur(20px);
+            overflow: hidden;
+            background: #fff;
         }
 
         /* Header Title Styling */
         body h2 {
             padding: 10px 0px 10px 100px;
             font-size: 30px;
-            background: #1a0251;
+            background: #fff;
             font-weight: 500;
             opacity: 0.6;
         }
 
         /* Card Container Styling */
         header {
+            max-width: 100%;
+            height: 95vh;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
             flex-wrap: wrap;
-            margin: 20px 100px 0 100px;
+            margin: 20px 10px 0 100px;
             padding: 0px 100px;
         }
 
@@ -45,34 +49,37 @@
         body header div {
             width: 350px;
             height: 35vh;
-            border: 5px solid rgb(247, 250, 251);
-            border-radius: 15px;
+            border: 3px solid #007bff;
+            border-radius:10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
             font-size: 25px;
-            padding: 5px;
+            padding: 1px;
             display: inline-block;
             transition: transform 0.3s ease;
             margin: 20px;
         }
 
         /* Hover Effect for Cards */
-        div:hover {
+        .staff-info:hover {
             transform: scale(1.1);
         }
 
         /* Image Styling */
         .img {
-            width: 100%;
-            height: 30vh;
+            padding-top: 10px;
+            
+            width: 60%;
+            height: 28vh;
         }
 
         /* Button Text Styling */
         b {
             width: 100%;
             display: block;
-            background: #23027c;
-            border-radius: 10px;
-            padding: 2px;
+            background: #007bff;
+            border-radius:7px 7px 0px 0px;
+            padding: 0px;
         }
 
         /* Section Backgrounds */
@@ -80,38 +87,67 @@
             background-color: transparent;
             flex-shrink: 1;
         }
+            .nav-bar{
+                width: 100%;
+                height: 20px;
+                background-color: #007bff;
+                padding: 20px;
+                color: aliceblue;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 20px;
+                font-weight:600;
+            }
+            .nav-bar .nav-bar-first span:first-child{
+                padding: 0px 80px 0px 50px;
+            }
+            .nav-bar .nav-bar-second a{
+                margin-right: 40px;
+                color: #fff;
+                font-weight:600;
+                text-decoration: none;
+            } 
+            .nav-bar .nav-bar-second a i{
+                padding-right:5px ;
+            }
+        
     </style>
+
 </head>
 <body>
-    <!-- Header Title -->
-    <h2>Hello! Debasis</h2>
-
-    <!-- Card Links -->
+    <div class="nav-bar">
+        <div class="nav-bar-first">
+            <i class="fa-solid fa-bars"></i>
+            <span>RSGDSA Bank</span>
+        </div>
+        <div class="nav-bar-second">
+            <a href=""><i class="fa-regular fa-circle-user"></i></a>
+            <a href=""><i aria-valuemax="logout" class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+        </div>
+    </div>
+   
     <header>
-        <a href="#">
-            <div class="staff-info">
-                <b>DEPOSIT</b>
-                <img src="images/deposit-removebg-preview.png" class="img" alt="Deposit Icon">
-            </div>
-        </a>
+        
         <a href="#">
             <div class="staff-info">
                 <b>WITHDRAW</b>
-                <img src="images/withdraw1-removebg-preview (1).png" class="img" alt="Withdraw Icon">
+                <img src="withdraw.png" class="img" alt="Withdraw Icon">
             </div>
         </a>
         <a href="#">
             <div class="staff-info">
                 <b>CHECK BALANCE</b>
-                <img src="images/bal1-removebg-preview (1).png" class="img" alt="Check Balance Icon">
+                <img src="balance.png" class="img" alt="Check Balance Icon">
             </div>
         </a>
         <a href="#">
             <div class="staff-info">
                 <b>MONEY TRANSFER</b>
-                <img src="images/transfer1-removebg-preview.png" class="img" alt="Money Transfer Icon">
+                <img src="transfer.png" class="img" alt="Money Transfer Icon">
             </div>
         </a>
     </header>
 </body>
 </html>
+    
