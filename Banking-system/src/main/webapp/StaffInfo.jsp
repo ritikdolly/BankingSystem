@@ -210,6 +210,10 @@
                 <label for="bank-name">Bank Name :<input type="text" value="${bankName}" disabled name="bankname" id="bank-name"></label>
                 <label for="tax-Id">Tax Identification Number :<input type="text" value="${taxId}" disabled name="taxId"
                         id="tax-Id"></label>
+                <label for="aadharNo">Aadhar Number :<input type="text" value="${aadharNo}" disabled name="aadharNo"
+                        id="aadharNo"></label>
+                <label for="panNo">PAN Number :<input type="text" value="${panNo}" disabled name="panNo"
+                        id="panNo"></label>
             </div>
             <div class="infoBoxes">
                 <h4>Education Qualification</h4>

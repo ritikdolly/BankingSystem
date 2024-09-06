@@ -306,6 +306,14 @@ button[type="submit"] {
                     <label for="tax-Id">Tax Identification Number</label>
                     <input type="text" required name="taxId" id="tax-Id" placeholder="Enter Tax Identification Number ">
                 </div>
+                <div id="info">
+                    <label for="aadhar-No">Aadhar Number</label>
+                    <input type="text" required name="aadharNo" id="aadhar-No" placeholder="Enter Aadhar Number ">
+                </div>
+                <div id="info">
+                    <label for="pan-No">PAN Number</label>
+                    <input type="text" required name="panNo" id="pan-No" placeholder="Enter Tax Identification Number ">
+                </div>
                 <div id="infobutton">
                     <button id="prev" name="prev" type="button">Prev</button>
                     <button id="next" name="next" type="button">Next</button>

@@ -69,6 +69,8 @@ public class AddStaff {
 	private String accountnumber;
 	private String bankname;
 	private String taxId;
+	private String aadharNo;
+	private String panNO;
 	//Education Qualification
 	private int year10;
 	private String schoolname10;
@@ -85,6 +87,7 @@ public class AddStaff {
 	private String emppostion;
 	private int empduration;
 	private String leavingreason;
+	
 	//References 1
 	private String reference1;
 	private String refrelation1;
@@ -363,6 +366,20 @@ public class AddStaff {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	
+	
+	public String getAadharNo() {
+		return aadharNo;
+	}
+	public void setAadharNo(String aadharNo) {
+		this.aadharNo = aadharNo;
+	}
+	public String getPanNO() {
+		return panNO;
+	}
+	public void setPanNO(String panNO) {
+		this.panNO = panNO;
+	}
 	@Override
 	public String toString() {
 		return "AddStaff [fname=" + fname + ", lname=" + lname + ", gender=" + gender + ", dob=" + dob + ", fatherName="
@@ -370,14 +387,15 @@ public class AddStaff {
 				+ district + ", state=" + state + ", pincode=" + pincode + ", phoneNumber=" + phoneNumber + ", email="
 				+ email + ", emergencyNo=" + emergencyNo + ", postion=" + postion + ", joiningdate=" + joiningdate
 				+ ", workschedule=" + workschedule + ", accountnumber=" + accountnumber + ", bankname=" + bankname
-				+ ", taxId=" + taxId + ", year10=" + year10 + ", schoolname10=" + schoolname10 + ", tenthpercent="
-				+ tenthpercent + ", year12=" + year12 + ", schoolname12=" + schoolname12 + ", twelfthpercent="
-				+ twelfthpercent + ", degreename=" + degreename + ", degreeyear=" + degreeyear + ", collegename="
-				+ collegename + ", degreepercent=" + degreepercent + ", previousEmp=" + previousEmp + ", emppostion="
-				+ emppostion + ", empduration=" + empduration + ", leavingreason=" + leavingreason + ", reference1="
-				+ reference1 + ", refrelation1=" + refrelation1 + ", refphno1=" + refphno1 + ", refemail1=" + refemail1
-				+ ", reference2=" + reference2 + ", refrelation2=" + refrelation2 + ", refphno2=" + refphno2
-				+ ", refemail2=" + refemail2 + ", empid=" + empid + ", pwd=" + pwd + "]";
+				+ ", taxId=" + taxId + ", aadharNo=" + aadharNo + ", panNO=" + panNO + ", year10=" + year10
+				+ ", schoolname10=" + schoolname10 + ", tenthpercent=" + tenthpercent + ", year12=" + year12
+				+ ", schoolname12=" + schoolname12 + ", twelfthpercent=" + twelfthpercent + ", degreename=" + degreename
+				+ ", degreeyear=" + degreeyear + ", collegename=" + collegename + ", degreepercent=" + degreepercent
+				+ ", previousEmp=" + previousEmp + ", emppostion=" + emppostion + ", empduration=" + empduration
+				+ ", leavingreason=" + leavingreason + ", reference1=" + reference1 + ", refrelation1=" + refrelation1
+				+ ", refphno1=" + refphno1 + ", refemail1=" + refemail1 + ", reference2=" + reference2
+				+ ", refrelation2=" + refrelation2 + ", refphno2=" + refphno2 + ", refemail2=" + refemail2 + ", empid="
+				+ empid + ", pwd=" + pwd + "]";
 	}
 	
 	

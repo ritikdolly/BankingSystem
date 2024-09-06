@@ -57,6 +57,8 @@ public class StaffregistrationControl extends HttpServlet {
 			addstaff.setAccountnumber(request.getParameter("accountnumber"));
 			addstaff.setBankname(request.getParameter("bankname"));
 			addstaff.setTaxId(request.getParameter("taxId"));
+			addstaff.setAadharNo(request.getParameter("aadharNo"));
+			addstaff.setPanNO(request.getParameter("panNo"));
 			addstaff.setYear10(Integer.parseInt(request.getParameter("year10")));
 			addstaff.setSchoolname10(request.getParameter("schoolname10"));
 			addstaff.setTenthpercent(Integer.parseInt(request.getParameter("tenthpercent")));
@@ -141,6 +143,8 @@ public class StaffregistrationControl extends HttpServlet {
 	        	request.setAttribute("accNo", addstaff.getAccountnumber());
 	        	request.setAttribute("bankName", addstaff.getBankname());
 	        	request.setAttribute("taxId", addstaff.getTaxId());
+	        	request.setAttribute("aadharNo", addstaff.getAadharNo());
+	        	request.setAttribute("panNo", addstaff.getPanNO());
 	        	request.setAttribute("year10", addstaff.getYear10());
 	        	request.setAttribute("schoolName10", addstaff.getSchoolname10());
 	        	request.setAttribute("tenthpercent", addstaff.getTenthpercent());
