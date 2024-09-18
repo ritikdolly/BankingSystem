@@ -132,18 +132,22 @@
         </div>
     </div>
       <% String userName = (String) request.getAttribute("userName"); %>
-    <h3 id="username">Hello! <%= userName%></h3><!--  != null ? userName : ""  -->
+    <h3 id="username">Hello! <%= userName != null ? userName : ""  %> </h3>
     <header>
-        <a href="#">
-            <div class="staff-info">
-                <b>STAFF INFORMATION</b>
-                <img src="images/stf2.png" class="img" alt="Withdraw Icon">
-            </div>
-        </a>
+    
+    	<a href="<%= request.getContextPath()%>/staffModify?action=all"> 
+		    <div class="staff-info">
+		        <b>STAFF INFORMATION</b>
+		        <img src="images/stf2.png" class="img" alt="Staff Information Icon">
+		    </div>
+		</a>
+
+
+
         <a href="#">
             <div class="staff-info">
                 <b>CUSTOMOR INFORMATION</b>
-                <img src="images/staffinfo.png" class="img" alt="Check Balance Icon">
+                <img src="images/staffinfo.png" class="img" alt ="Customer Information">
             </div>
         </a>
         <a href="staffRegisterIndex.jsp">

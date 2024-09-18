@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * Servlet Filter implementation class WithoutLogin
  */
-
+@WebFilter("/ManagerAccess.jsp ,/staffRegisterIndex.jsp")
 public class WithoutLogin extends HttpFilter implements Filter {
 
 	/**

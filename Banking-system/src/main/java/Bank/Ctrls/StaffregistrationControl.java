@@ -51,7 +51,7 @@ public class StaffregistrationControl extends HttpServlet {
 			addstaff.setPhoneNumber(request.getParameter("phoneNumber"));
 			addstaff.setEmail(request.getParameter("email"));
 			addstaff.setEmergencyNo(request.getParameter("emergencyNo"));
-			addstaff.setPostion(request.getParameter("position"));
+			addstaff.setPosition(request.getParameter("position"));
 			addstaff.setJoiningdate(request.getParameter("joiningdate"));
 			addstaff.setWorkschedule(request.getParameter("workschedule"));
 			addstaff.setAccountnumber(request.getParameter("accountnumber"));
@@ -83,7 +83,7 @@ public class StaffregistrationControl extends HttpServlet {
 			addstaff.setRefrelation2(request.getParameter("refrelation2"));
 			addstaff.setRefphno2(request.getParameter("refphno2"));
 			addstaff.setRefemail2(request.getParameter("refemail2"));
-			System.out.println("in staff ctrls line-1");
+			System.out.println("in staff registor ctrls line-1");
 			//generate userId and Password
 			Random random = new Random();
 			int random3DigitNumber = ThreadLocalRandom.current().nextInt(1000, 10000);
@@ -92,7 +92,7 @@ public class StaffregistrationControl extends HttpServlet {
 			addstaff.setEmpid(empid);
 			
 	        addstaff.setEmpid(name+random3DigitNumber);
-	        System.out.println("in staff ctrls line-2");
+	        System.out.println("in staff registor ctrls line-2");
 	        // generate password
 	        String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	        String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -115,7 +115,7 @@ public class StaffregistrationControl extends HttpServlet {
 	        // object of dao file where we can store and connect to sql
 	        StaffRegisterDao staffDao= new StaffRegisterDao();
 	        
-	        System.out.println("in staff ctrls line-4");
+	        System.out.println("in staff registor ctrls line-3");
 	        if(staffDao.addStaff(addstaff)) {
 	        	msg="Data Successfully Inserted..!";
 	        	forwordToStaffRegisterIndex= false;
@@ -137,7 +137,7 @@ public class StaffregistrationControl extends HttpServlet {
 	        	request.setAttribute("phoneNo", addstaff.getPhoneNumber());
 	        	request.setAttribute("email", addstaff.getEmail());
 	        	request.setAttribute("emergencyNO", addstaff.getEmergencyNo());
-	        	request.setAttribute("postion", addstaff.getPostion());
+	        	request.setAttribute("postion", addstaff.getPosition());
 	        	request.setAttribute("dateofJoin", addstaff.getJoiningdate());
 	        	request.setAttribute("workschedule", addstaff.getWorkschedule());
 	        	request.setAttribute("accNo", addstaff.getAccountnumber());
@@ -156,7 +156,7 @@ public class StaffregistrationControl extends HttpServlet {
 	        	request.setAttribute("collegeName", addstaff.getCollegename());
 	        	request.setAttribute("degreepercent", addstaff.getDegreepercent());
 	        	request.setAttribute("previousEmp", addstaff.getPreviousEmp());
-	        	request.setAttribute("position", addstaff.getPostion());
+	        	request.setAttribute("position", addstaff.getPosition());
 	        	request.setAttribute("empDuration", addstaff.getEmpduration());
 	        	request.setAttribute("leavingreson", addstaff.getLeavingreason());
 	        	request.setAttribute("refName1", addstaff.getReference1());
@@ -230,4 +230,3 @@ public class StaffregistrationControl extends HttpServlet {
 		*/
 	}
 }
-

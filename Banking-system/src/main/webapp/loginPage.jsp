@@ -131,6 +131,7 @@
             </span>
             <input type="submit" id="submitBtn" name="login" value="Login" />
         </form>
+        
         <!-- <p class="error-message" id="errorMsg">Invalid Captcha, please Fill Correctly...</p>-->
         <%
             String msg= (String) request.getAttribute("msg");
@@ -138,5 +139,6 @@
         %><h5><%out.print(msg);%></h5>
         <%} %>
     </div>
+    <%System.out.println(session.getAttribute("captcha")); %>
 </body>
 </html>
