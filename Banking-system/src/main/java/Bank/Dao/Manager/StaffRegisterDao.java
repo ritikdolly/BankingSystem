@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
+
 import Bank.Model.staff.AddStaff;
 
 public class StaffRegisterDao {
@@ -138,6 +140,7 @@ public class StaffRegisterDao {
 			Connection con = null;
 			PreparedStatement st = null;
 			String query="DELETE FROM staff WHERE (EmpId = ?) ;";
+			String query2="DELETE FROM login WHERE (EmpId = ?)";
 			boolean flag= false;
 			try {
 				con= StaffRegisterDao.getConnection();
@@ -146,8 +149,13 @@ public class StaffRegisterDao {
 				st.setString(1, empId);
 				int val = st.executeUpdate();
 				if(val == 1) {
-					flag=true;
-					con.commit();
+					st=con.prepareStatement(query2);
+					st.setString(1, empId);
+					int succ = st.executeUpdate();
+					if(succ ==1) {
+						flag=true;
+						con.commit();
+					}
 				}else {
 					flag =false;
 					con.rollback();
@@ -167,62 +175,128 @@ public class StaffRegisterDao {
 			return flag;
 		}
 		
-		// update  staff Account....
-		public boolean updateStaffAcc(AddStaff updaStaff) {
-			Connection con = null;
-			PreparedStatement st = null;
-			String query="UPDATE staff SET fname = ?, lname = ?, dob = ?, fatherName = ?, address = ?, city = ?, phoneNo = ?, email = ?, emergencyNO = ?, position = ?, workSchedule = ?, reference1 = ?, refrelation1 = ?, refphNo1 = ?, refemail1 = ?, reference2 = ?, refrelation2 = ?, refphNo2 = ?, refemail2 = ? WHERE (EmpId = ?);";
-			//20 info will updateed..
-			boolean flag= false;
+		//get record form database to jsp page show that edit can be done
+		public AddStaff editStaffRetrieve(String empId) {
+			AddStaff staff = new AddStaff();
+			Connection con=null;
+			PreparedStatement st =null;
+			ResultSet rs =null;
+			String query="SELECT fname, lname , dob , fatherName , address , city, phoneNo , email , emergencyNO , position , workSchedule, reference1, refrelation1,refphNo1 , refemail1, reference2 , refrelation2 , refphNo2, refemail2 from staff WHERE (EmpId = ?);";
 			try {
 				con= StaffRegisterDao.getConnection();
-				con.setAutoCommit(false);
 				st=con.prepareStatement(query);
-				st.setString(1,updaStaff.getFname());
-				st.setString(2,updaStaff.getLname());
-				st.setString(3,updaStaff.getDob());
-				st.setString(4,updaStaff.getFatherName());
-				st.setString(5,updaStaff.getAddress());
-				st.setString(6,updaStaff.getCity());
-				st.setString(7,updaStaff.getPhoneNumber());
-				st.setString(8,updaStaff.getEmail());
-				st.setString(9,updaStaff.getEmergencyNo());
-				st.setString(10,updaStaff.getPosition());
-				st.setString(11,updaStaff.getWorkschedule());
-				st.setString(12,updaStaff.getReference1());
-				st.setString(13,updaStaff.getRefrelation1());
-				st.setString(14,updaStaff.getRefphno1());
-				st.setString(15,updaStaff.getRefemail1());
-				st.setString(16,updaStaff.getReference2());
-				st.setString(17,updaStaff.getRefrelation2());
-				st.setString(18,updaStaff.getRefphno2());
-				st.setString(19,updaStaff.getRefemail2());
-				st.setString(20, updaStaff.getEmpid());
-				int val =st.executeUpdate();
-				if(val == 1) {
-					flag= true;
-					con.commit();
-				}else {
-					con.rollback();
+				st.setString(1, empId);
+				rs = st.executeQuery();
+				while(rs.next()) {
+					staff.setFname(rs.getString("fname"));
+					staff.setLname(rs.getString("lname"));
+					staff.setDob(rs.getString("dob"));
+					staff.setFatherName(rs.getString("fatherName"));
+					staff.setAddress(rs.getString("address"));
+					staff.setCity(rs.getString("city"));
+					staff.setPhoneNumber(rs.getString("phoneNo"));
+					staff.setEmail(rs.getString("email"));
+					staff.setEmergencyNo(rs.getString("emergencyNO"));
+					staff.setPosition(rs.getString("position"));
+					staff.setWorkschedule(rs.getString("workSchedule"));
+					staff.setReference1(rs.getString("reference1"));
+					staff.setRefrelation1(rs.getString("refrelation1"));
+					staff.setRefphno1(rs.getString("refphNo1"));
+					staff.setRefemail1(rs.getString("refemail1"));
+					staff.setReference2(rs.getString("reference2"));
+					staff.setRefrelation2(rs.getString("refrelation2"));
+					staff.setRefphno2(rs.getString("refphNo2"));
+					staff.setRefemail2(rs.getString("refemail2"));	
+					staff.setEmpid(empId);
+					System.out.println("in in StaffregistorDao editStaff() try --1");
 				}
 				
-			}catch (Exception e) {
-				e.printStackTrace();
-			}finally {
-				try {
-					if(con != null)
-						con.close();
-					if(st != null)
-						st.close();
-				}catch (Exception e2) {
-					e2.printStackTrace();
-				}
-			}
-			return flag;
+			} catch (Exception e) {
+		        System.out.println("SQL Error: " + e.getMessage());
+		        e.printStackTrace();
+		        System.out.println("in StaffregistorDao editStaff() catch 1 ");
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (st != null) st.close();
+		            if (con != null) con.close();
+		            System.out.println("in StaffregistorDao editStaff() try --2 ");
+		        } catch (SQLException e3) {
+		            e3.printStackTrace();
+		        }
+		    }
+			return staff;
 		}
 		
+		// update  staff Account....
+		public boolean updateStaff(AddStaff staff) throws ClassNotFoundException {
+			 String UPDATE_STAFF_SQL = "UPDATE staff SET fname = ?, lname = ?, dob = ?, fatherName = ?, address = ?, city = ?, phoneNo = ?,emergencyNO = ?, email = ?,  position = ?, workSchedule = ?, reference1 = ?, refrelation1 = ?, refphNo1 = ?, refemail1 = ?, reference2 = ?, refrelation2 = ?, refphNo2 = ?, refemail2 = ? WHERE EmpId = ?";
+			 Connection con=null;
+			 boolean flag = false;
+	        try {
+	        	con= StaffRegisterDao.getConnection();
+	            PreparedStatement preparedStatement = con.prepareStatement(UPDATE_STAFF_SQL);
+	            System.out.println("in StaffregDao Update() line -1");
+	            preparedStatement.setString(1, staff.getFname());
+	            preparedStatement.setString(2, staff.getLname());
+	            preparedStatement.setString(3, staff.getDob());
+	            preparedStatement.setString(4, staff.getFatherName());
+	            preparedStatement.setString(5, staff.getAddress());
+	            preparedStatement.setString(6, staff.getCity());
+	            preparedStatement.setString(7, staff.getPhoneNumber());
+	            preparedStatement.setString(8, staff.getEmergencyNo());
+	            preparedStatement.setString(9, staff.getEmail());
+	            preparedStatement.setString(10, staff.getPosition());
+	            preparedStatement.setString(11, staff.getWorkschedule());
+	            preparedStatement.setString(12, staff.getRefemail1());
+	            preparedStatement.setString(13, staff.getRefrelation1());
+	            preparedStatement.setString(14, staff.getRefphno1());
+	            preparedStatement.setString(15, staff.getRefemail1());
+	            preparedStatement.setString(16, staff.getReference2());
+	            preparedStatement.setString(17, staff.getRefrelation2());
+	            preparedStatement.setString(18, staff.getRefphno2());
+	            preparedStatement.setString(19, staff.getRefemail1());
+	            preparedStatement.setString(20, staff.getEmpid());
+	            System.out.println("in StaffregDao Update() line -2");
+	            int val = preparedStatement.executeUpdate();
+	            System.out.println("in StaffregDAO Update() line -3");
+	            System.out.println("------------------------------------");
+	            System.out.println(staff.getFname());
+	    		System.out.println(staff.getLname());
+	    		System.out.println(staff.getDob());
+	    		System.out.println(staff.getFatherName());
+	    		System.out.println(staff.getAddress());
+	    		System.out.println(staff.getCity());
+	    		System.out.println(staff.getPhoneNumber());
+	    		System.out.println(staff.getEmail());
+	    		System.out.println(staff.getEmergencyNo());
+	    		System.out.println(staff.getPosition());
+	    		System.out.println(staff.getWorkschedule());
+	    		System.out.println(staff.getReference1());
+	    		System.out.println(staff.getRefrelation1());
+	    		System.out.println(staff.getRefphno1());
+	    		System.out.println(staff.getRefemail1());
+	    		System.out.println(staff.getReference2());
+	    		System.out.println(staff.getRefrelation2());
+	    		System.out.println(staff.getRefphno2());
+	    		System.out.println(staff.getRefemail2());
+	    		System.out.println(staff.getEmpid());
+	    		System.out.println("-------------------------------------------");
+	            if(val == 1) {
+	            	flag = true;
+	            	System.out.println("in StaffregDAo Update() If condn..1");
+	            }else {
+	            	flag= false;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            System.out.println("in StaffregDAo Update() Catch -1");
+	        }
+	        return flag;
+	    }
+		
 		//to see more detail about one staff
-		public boolean moreAboutStaff(String empId) {
+		public AddStaff moreAboutStaff(String empId) {
 			Connection con = null;
 			PreparedStatement st = null;
 			String query="SELECT * FROM staff WHERE (EmpId = ?)";
@@ -296,7 +370,7 @@ public class StaffRegisterDao {
 					e2.printStackTrace();
 				}
 			}
-			return flag;
+			return staff;
 		}
 		
 		
@@ -306,7 +380,7 @@ public class StaffRegisterDao {
 		
 		
 		
-		//to see fname ,lname,and EmoId 
+		//to see fname ,lname, EmoId and Position 
 		public List<AddStaff> selectAllEmp() throws ClassNotFoundException{
 		    List<AddStaff> emps = new ArrayList<>();
 		    Connection con = null;
@@ -328,7 +402,6 @@ public class StaffRegisterDao {
 		            String fname = rs.getString("fname");
 		            String lname = rs.getString("lname");
 		            String position = rs.getString("position");
-		            System.out.println(empId + " " + fname + " " + lname + " " + position);
 		            emps.add(new AddStaff(empId, fname, lname, position));
 		        }
 		        System.out.println("in StaffregistorDao selectAllEmp() -3 ");

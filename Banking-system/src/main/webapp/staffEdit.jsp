@@ -91,10 +91,9 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="ManagerAccess.jsp">Home</a>
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <li><a href="<%=request.getContextPath()%>/staff" class="nav-link">Staff-List</a>
-            	<li><a href="<%=request.getContextPath()%>/staff" class="nav-link">Staff-List</a>
+            	<li><a href="<%=request.getContextPath()%>/staffModity" class="nav-link">Staff-List</a>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -121,60 +120,60 @@
       </div>
     </div>
     <ul class="navbar-nav">
-    <li><a href="<%=request.getContextPath()%>/staff" class="nav-link">
+    <li><a href="<%=request.getContextPath()%>/staffModify?action=all" class="nav-link">
     </a></li>
     </ul>
   </nav>
 
-  <p class="h1 UserName">Hello! Ritik </p><br><br>
+  <p class="h1 UserName text-center">Employee Updation</p><br><br>
   <div class="container userContainer">
-    <form action="update"  class="row g-3">
+    <form class="row g-3" action="staffModify?action=update&id=${empId}" method="post">  
         <div class="col-md-6">
           <label for="fname" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="fname">
+          <input type="text" name="fname" value="${fname}" class="form-control" id="fname">
         </div>
         <div class="col-md-6">
           <label for="lname" class="form-label">Last Name</label>
-          <input type="password" class="form-control" id="lname" name="lname">
+          <input type="text" class="form-control" value="${lname}" id="lname" name="lname">
         </div>
         <div class="col-12">
-          <label for="inputAddress2" class="form-label">Date Of Birth</label>
-          <input type="date" class="form-control" name="dob" id="inputAddress2" placeholder="Apartment, studio, or floor">
+          <label for="dob" class="form-label">Date Of Birth</label>
+          <input type="date" class="form-control" name="dob" value="${dob}" id="dob" placeholder="Apartment, studio, or floor">
         </div>
         <div class="col-12">
             <label for="fatherName" class="form-label">Father's Name</label>
-            <input type="text" class="form-control" name="fatherName" id="inputAddress" placeholder="">
+            <input type="text" class="form-control" value="${fatherName}" name="fatherName" id="inputAddress" placeholder="">
           </div>
           <div class="col-12">
             <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" name="address" id="inputAddress" placeholder="">
+            <input type="text" class="form-control" value="${address}" name="address" id="inputAddress" placeholder="">
           </div>
         <div class="col-md-4">
           <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" name="city" id="inputCity">
+          <input type="text" class="form-control" value="${city}" name="city" id="inputCity">
         </div>
         <div class="col-md-4">
             <label for="phoneNumber" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber">
+            <input type="text" maxlength="10" class="form-control" value="${phoneNo}" name="phoneNumber" id="phoneNumber">
         </div>
         <div class="col-md-4">
             <label for="emergencyNo" class="form-label">Emergency Number</label>
-            <input type="text" class="form-control" name="emergencyNo" id="emergencyNo">
+            <input type="text" class="form-control" value="${emergencyNO}" name="emergencyNo" id="emergencyNo">
         </div>
         <div class="col-md-6">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control" name="email" id="email">
+            <input type="email" class="form-control" value="${email}" name="email" id="email">
         </div>
         <div class="col-md-6">
             <label for="position" class="form-label">Position</label>
-            <input type="text" class="form-control" name="position" id="position">
+            <input type="text" class="form-control" value="${position}" name="position" id="position">
         </div>
         <fieldset class="row mb-3">
             <legend class="col-form-label col-sm-2 pt-0">Employment</legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="workschedule" id="gridRadios1" value="Full Time" checked>
-                <label class="form-check-label" for="gridRadios1">Full Time </label>
+                <input class="form-check-input" required type="radio" name="workschedule" id="gridRadios1" value="Full Time" >
+                <label class="form-check-label"  for="gridRadios1">Full Time </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="workschedule" id="gridRadios2" value="Part Time">
@@ -183,10 +182,9 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="workschedule" id="gridRadios3" value="Feelacning">
-                <label class="form-check-label" for="gridRadios3">
-                    Feelacning
-                </label>
+                <input class="form-check-input" type="radio" name="workschedule" id="gridRadios3" value="Freelancing">
+				<label class="form-check-label" for="gridRadios3">Freelancing</label>
+
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="workschedule" id="gridRadios4" value="Internship">
@@ -199,38 +197,38 @@
           <label for="Reference1" class="form-label">Reference 1</label>
             <div class="col-md-3">
                 <label for="reference1" class="form-label">Reference Name</label>
-                <input type="text" class="form-control" name="reference1" id="reference1">
+                <input type="text" value="${refName1}" class="form-control" name="reference1" id="reference1">
             </div>
             <div class="col-md-3">
-                <label for="refrelation1" class="form-label">Relation b/w Reference</label>
-                <input type="text" class="form-control" name="refrelation1" id="refrelation1">
+                <label for="refrelation1" class="form-label">Relation with Reference</label>
+                <input type="text" class="form-control" value="${relation1 }" name="refrelation1" id="refrelation1">
             </div>
             <div class="col-md-3">
                 <label for="refphno1" class="form-label">Reference Phone Number</label>
-                <input type="text" class="form-control" name="refphno1" id="refphno1">
+                <input type="text" maxlength="10" class="form-control" value="${refPhNo1}"  name="refphno1" id="refphno1">
             </div>
             <div class="col-md-3">
                 <label for="refemail1" class="form-label">Reference E-mail</label>
-                <input type="text" class="form-control" name="refemail1" id="refemail1">
+                <input type="email" class="form-control" value="${refEmail1}" name="refemail1" id="refemail1">
             </div>
 
             <!-- Reference2 -->
             <label for="Reference2" class="form-label">Reference 2</label>
             <div class="col-md-3">
                 <label for="reference2" class="form-label">Reference Name</label>
-                <input type="text" class="form-control" name="reference2" id="reference2">
+                <input type="text" value="${refName2}" class="form-control" name="reference2" id="reference2">
             </div>
             <div class="col-md-3">
                 <label for="refrelation2" class="form-label">Relation b/w Reference</label>
-                <input type="text" class="form-control" name="refrelation2" id="refrelation2">
+                <input type="text" value="${relation2 }" class="form-control" name="refrelation2" id="refrelation2">
             </div>
             <div class="col-md-3">
                 <label for="refphno2" class="form-label">Reference Phone Number</label>
-                <input type="text" class="form-control" name="refphno2" id="refphno2">
+                <input type="text" maxlength="10" value="${refPhNo2}" class="form-control" name="refphno2" id="refphno2">
             </div>
             <div class="col-md-3">
                 <label for="refemail2" class="form-label">Reference E-mail</label>
-                <input type="text" class="form-control" name="refemail2" id="refemail2">
+                <input type="email" class="form-control" value="${refEmail2}" name="refemail2" id="refemail2">
             </div>
           <div class="form-check">
             <input class="form-check-input" required type="checkbox" id="gridCheck">
@@ -239,7 +237,8 @@
             </label>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+        <button class="btn btn-primary"  type="submit">Submit</button>
+          
         </div>
       </form>
   </div>
@@ -261,15 +260,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <script>
-    var myCarousel = document.querySelector('#carouselExampleCaptions');
-    var carousel = new bootstrap.Carousel(myCarousel, {
-      interval: 5000,  // 10 seconds
-      ride: 'carousel'
-    });
-
-
-  </script>
 </body>
 
 </html>

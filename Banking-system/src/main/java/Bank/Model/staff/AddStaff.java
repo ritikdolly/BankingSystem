@@ -120,6 +120,29 @@ public class AddStaff {
 	}
 
 
+	public AddStaff(String id, String fname, String lname, String dob, String fatherName, String address, String city, String phoneNumber, String emergencyNo, String email, String position, String workschedule, String refName1, String relation1, String refPhNo1, String refEmail1, String refName2, String relation2, String refPhNo2, String refEmail2) {
+        this.empid = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+        this.fatherName = fatherName;
+        this.address = address;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+        this.emergencyNo = emergencyNo;
+        this.email = email;
+        this.position = position;
+        this.workschedule = workschedule;
+        this.reference1 = refName1;
+        this.refrelation1 = relation1;
+        this.refphno1 = refPhNo1;
+        this.refemail1 = refEmail1;
+        this.reference2 = refName2;
+        this.refrelation2 = relation2;
+        this.refphno2 = refPhNo2;
+        this.refemail2 = refEmail2;
+    }
+
 	public String getFname() {
 		return fname;
 	}

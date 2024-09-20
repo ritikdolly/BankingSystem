@@ -24,7 +24,7 @@ public class StaffModificationControl extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+    	doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,14 +38,22 @@ public class StaffModificationControl extends HttpServlet {
             case "moreDetail":
                 moreStaffDetails(request, response);
                 break;
+            case "edit":
+            	editStaff(request,response);
+            	break;
             case "update":
-                updateStaff(request, response);
+			try {
+				updateStaff(request, response);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
                 break;
             case "delete":
                 deleteStaff(request, response);
                 break;
             case "all":
-                System.out.println("in case..(all) switch method");
                 allStaff(request, response);
                 break;
             default:
@@ -54,42 +62,126 @@ public class StaffModificationControl extends HttpServlet {
         }
     }
 
-    private void updateStaff(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //sending data to jsp page
+    private void editStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String empId = request.getParameter("id");
+    	System.out.println("EmpID: "+ empId);
+    	AddStaff staff = dao.editStaffRetrieve(empId);
+    	if(staff != null) {
+        	request.setAttribute("fname", staff.getFname());
+        	request.setAttribute("lname", staff.getLname());
+        	request.setAttribute("dob",staff.getDob());
+        	request.setAttribute("fatherName", staff.getFatherName());
+           	request.setAttribute("address", staff.getAddress());
+        	request.setAttribute("city", staff.getCity());
+        	request.setAttribute("phoneNo", staff.getPhoneNumber());
+        	request.setAttribute("email", staff.getEmail());
+        	request.setAttribute("emergencyNO", staff.getEmergencyNo());
+        	request.setAttribute("position", staff.getPosition());
+        	request.setAttribute("workschedule", staff.getWorkschedule());
+        	request.setAttribute("refName1", staff.getReference1());
+        	request.setAttribute("relation1",staff.getRefrelation1());
+        	request.setAttribute("refPhNo1", staff.getRefphno1());
+        	request.setAttribute("refEmail1",staff.getRefemail1());
+        	request.setAttribute("refName2", staff.getReference2());
+        	request.setAttribute("relation2",staff.getRefrelation2());
+        	request.setAttribute("refPhNo2", staff.getRefphno2());
+        	request.setAttribute("refEmail2",staff.getRefemail2());
+    		request.setAttribute("empId", staff.getEmpid());  
+    		System.out.println("EmpID instaffmodiCTRL in EDit 2: "+ staff.getEmpid());
+    		request.getRequestDispatcher("staffEdit.jsp").forward(request, response);
+    		
+    	}else {
+    		System.out.println("Error in Staff ModifyControlls");
+//    		request.getRequestDispatcher("Staff-list.jsp").forward(request, response);
+    	}
+	}
+    
+    
+    private void updateStaff(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException {
         
-    	AddStaff addStaff = new AddStaff();
-        addStaff.setFname(request.getParameter("fname"));
-        addStaff.setLname(request.getParameter("lname"));
-        addStaff.setDob(request.getParameter("dob"));
-        addStaff.setFatherName(request.getParameter("fatherName"));
-        addStaff.setAddress(request.getParameter("address"));
-        addStaff.setCity(request.getParameter("city"));
-        addStaff.setPhoneNumber(request.getParameter("phoneNumber"));
-        addStaff.setEmail(request.getParameter("email"));
-        addStaff.setEmergencyNo(request.getParameter("emergencyNo"));
-        addStaff.setPosition(request.getParameter("position"));
-        addStaff.setWorkschedule(request.getParameter("workschedule"));
-        addStaff.setReference1(request.getParameter("reference1"));
-        addStaff.setRefrelation1(request.getParameter("refrelation1"));
-        addStaff.setRefphno1(request.getParameter("refphno1"));
-        addStaff.setRefemail1(request.getParameter("refemail1"));
-        addStaff.setReference2(request.getParameter("reference2"));
-        addStaff.setRefrelation2(request.getParameter("refrelation2"));
-        addStaff.setRefphno2(request.getParameter("refphno2"));
-        addStaff.setRefemail2(request.getParameter("refemail2"));       
+    	String id = request.getParameter("id");
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String dob = request.getParameter("dob");
+        String fatherName = request.getParameter("fatherName");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String emergencyNo = request.getParameter("emergencyNo");
+        String email = request.getParameter("email");
+        String position = request.getParameter("position");
+        String workschedule = request.getParameter("workschedule");
+        String refName1 = request.getParameter("reference1");
+        String relation1 = request.getParameter("refrelation1");
+        String refPhNo1 = request.getParameter("refphno1");
+        String refEmail1 = request.getParameter("refemail1");
+        String refName2 = request.getParameter("reference2");
+        String relation2 = request.getParameter("refrelation2");
+        String refPhNo2 = request.getParameter("refphno2");
+        String refEmail2 = request.getParameter("refemail2");
 
-        if (dao.updateStaffAcc(addStaff)) {
+        AddStaff staff = new AddStaff(id, fname, lname, dob, fatherName, address, city, phoneNumber, emergencyNo, email, position, workschedule, refName1, relation1, refPhNo1, refEmail1, refName2, relation2, refPhNo2, refEmail2);        
+        if (dao.updateStaff(staff)) {
             System.out.println("Successfully Updated....!");
-            response.sendRedirect(request.getContextPath() + "/staffModify");
+            response.sendRedirect(request.getContextPath() + "/staffModify?action=all");
         } else {
             System.out.println("Something went wrong, we can't update");
-            response.sendRedirect(request.getContextPath() + "/staffModify");
+            response.sendRedirect(request.getContextPath() + "/staffModify?action=all");
         }
     }
 
     private void moreStaffDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String empId = request.getParameter("id");
+        System.out.println("EmpID: "+empId);
+        AddStaff addstaff =dao.moreAboutStaff(empId);
         if (empId != null && !empId.isEmpty()) {
-            if (dao.moreAboutStaff(empId)) {
+            if (addstaff != null) {
+	        	request.setAttribute("empId", empId);
+	        	request.setAttribute("fname", addstaff.getFname());
+	        	request.setAttribute("lname", addstaff.getLname());
+	        	request.setAttribute("gender", addstaff.getGender());
+	        	request.setAttribute("dob", addstaff.getDob());
+	        	request.setAttribute("fatherName", addstaff.getFatherName());
+	        	request.setAttribute("nationally", addstaff.getNationally());
+	        	request.setAttribute("address", addstaff.getAddress());
+	        	request.setAttribute("city", addstaff.getCity());
+	        	request.setAttribute("district", addstaff.getDistrict());
+	        	request.setAttribute("state", addstaff.getState());
+	        	request.setAttribute("pinCode", addstaff.getPincode());
+	        	request.setAttribute("phoneNo", addstaff.getPhoneNumber());
+	        	request.setAttribute("email", addstaff.getEmail());
+	        	request.setAttribute("emergencyNO", addstaff.getEmergencyNo());
+	        	request.setAttribute("postion", addstaff.getPosition());
+	        	request.setAttribute("dateofJoin", addstaff.getJoiningdate());
+	        	request.setAttribute("workschedule", addstaff.getWorkschedule());
+	        	request.setAttribute("accNo", addstaff.getAccountnumber());
+	        	request.setAttribute("bankName", addstaff.getBankname());
+	        	request.setAttribute("taxId", addstaff.getTaxId());
+	        	request.setAttribute("aadharNo", addstaff.getAadharNo());
+	        	request.setAttribute("panNo", addstaff.getPanNO());
+	        	request.setAttribute("year10", addstaff.getYear10());
+	        	request.setAttribute("schoolName10", addstaff.getSchoolname10());
+	        	request.setAttribute("tenthpercent", addstaff.getTenthpercent());
+	        	request.setAttribute("year12", addstaff.getYear12());
+	        	request.setAttribute("schoolName12", addstaff.getSchoolname12());
+	        	request.setAttribute("twelthpercent", addstaff.getTwelfthpercent());
+	        	request.setAttribute("degreeName", addstaff.getDegreename());
+	        	request.setAttribute("degreeyear", addstaff.getDegreeyear());
+	        	request.setAttribute("collegeName", addstaff.getCollegename());
+	        	request.setAttribute("degreepercent", addstaff.getDegreepercent());
+	        	request.setAttribute("previousEmp", addstaff.getPreviousEmp());
+	        	request.setAttribute("empposition", addstaff.getEmppostion());
+	        	request.setAttribute("empDuration", addstaff.getEmpduration());
+	        	request.setAttribute("leavingreson", addstaff.getLeavingreason());
+	        	request.setAttribute("refName1", addstaff.getReference1());
+	        	request.setAttribute("relation1", addstaff.getRefrelation1());
+	        	request.setAttribute("refPhNo1", addstaff.getRefphno1());
+	        	request.setAttribute("refEmail1", addstaff.getRefemail1());
+	        	request.setAttribute("refName2", addstaff.getReference2());
+	        	request.setAttribute("relation2", addstaff.getRefrelation2());
+	        	request.setAttribute("refPhNo2", addstaff.getRefphno2());
+	        	request.setAttribute("refEmail2", addstaff.getRefemail2());
                 request.getRequestDispatcher("StaffInfo.jsp").forward(request, response);
             } else {
                 System.out.println("Something went wrong!");

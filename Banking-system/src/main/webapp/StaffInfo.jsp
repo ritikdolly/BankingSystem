@@ -138,14 +138,14 @@
         
             /* Remove box-shadow, padding, and other unnecessary styles */
             .container {
-                box-shadow: none;
-                padding: 0;
-                width: 100%;
-                max-width: none;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
+                max-width: 100%;
+	            display: flex;
+	            justify-content: space-around;
+	            flex-direction: column;
+	            background-color: transparent;
+	            padding: 10px;
+	            margin: 10px;
+	            color: rgb(7, 7, 6);
             }
         
             /* Remove background color from body */
@@ -235,9 +235,9 @@
                 </div>
                 <h5>Other Qualification</h5>
                 <div class="detail">
-                    <label for="degree-name">Degree Name :<input type="text" value="${degreeName} disabled id="degree-name"
+                    <label for="degree-name">Degree Name :<input type="text" value="${degreeName}" disabled id="degree-name"
                             name="degreename"></label>
-                    <label for="year-other">Passing Year :<input type="text" value="${degreeyear}; disabled id="year-other"
+                    <label for="year-other">Passing Year :<input type="text" value="${degreeyear}" disabled id="year-other"
                             name="degreeyear"></label>
                     <label for="college-name-other">College Name : <input type="text" value="${collegeName}" disabled id="college-name-other"
                             name="collegename"></label>
@@ -250,7 +250,7 @@
 
                 <label for="previous-Emp">Previous Employer :<input type="text" value="${previousEmp}" disabled name="previousEmp"
                         id="previousEmp"></label>
-                <label for="emp-position">Position :<input type="text" value="${position}" disabled name="empposition"
+                <label for="emp-position">Position :<input type="text" value="${empposition}" disabled name="empposition"
                         id="emp-position"></label>
                 <label for="emp-duration">Employment Duration :<input type="number" value="${empDuration}" disabled id="emp-duration"
                         name="empduration"></label>

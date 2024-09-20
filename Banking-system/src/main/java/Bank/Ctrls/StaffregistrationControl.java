@@ -156,7 +156,7 @@ public class StaffregistrationControl extends HttpServlet {
 	        	request.setAttribute("collegeName", addstaff.getCollegename());
 	        	request.setAttribute("degreepercent", addstaff.getDegreepercent());
 	        	request.setAttribute("previousEmp", addstaff.getPreviousEmp());
-	        	request.setAttribute("position", addstaff.getPosition());
+	        	request.setAttribute("empposition", addstaff.getEmppostion());
 	        	request.setAttribute("empDuration", addstaff.getEmpduration());
 	        	request.setAttribute("leavingreson", addstaff.getLeavingreason());
 	        	request.setAttribute("refName1", addstaff.getReference1());

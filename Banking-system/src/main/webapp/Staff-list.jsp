@@ -125,7 +125,7 @@
     <div class="row">
       <div class="col-10">
         <h2 class="text-success">Staff Information</h2>
-        <a href="staffRegisterIndex.jsp" class="btn btn-success">Add New Staff</a>
+        <a href="staffRegisterIndex.jsp" class="btn btn-success">Add New Staff</a><br>
 
         <table class="table table-bordered">
           <thead>
@@ -153,7 +153,7 @@
            <td><%= eachStaff.getPosition() %></td>
            <td>
               <a href="<%=request.getContextPath()%>/staffModify?action=moreDetail&id=<%= eachStaff.getEmpid() %>">See More</a> |
-              <a href="<%=request.getContextPath()%>/staffModify?action=update&id=<%= eachStaff.getEmpid() %>">Edit</a> |
+              <a href="<%=request.getContextPath()%>/staffModify?action=edit&id=<%= eachStaff.getEmpid() %>">Edit</a> |
               <a href="<%=request.getContextPath()%>/staffModify?action=delete&id=<%= eachStaff.getEmpid() %>">Delete</a>
            </td>
          </tr>
