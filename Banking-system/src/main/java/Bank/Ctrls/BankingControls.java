@@ -48,7 +48,6 @@ public class BankingControls extends HttpServlet {
 				switch (type) {
 				case "admin": 
 					System.out.println(type);
-					request.setAttribute("userName", addCust.getUserName());
 					request.getRequestDispatcher("ManagerAccess.jsp").forward(request, response);
 					forwardToLogin = false; 
 					break;

@@ -9,64 +9,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>    
 	<style>
 	@charset "UTF-8";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background-color: #f7f8fa;
-    color: #333;
-    padding-top: 80px; 
-}
-
-/* Navbar Styling */
-        .nav-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #007bff;
-            padding: 20px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .nav-bar .nav-bar-first {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-bar .nav-bar-first i {
-            margin-right: 10px;
-            font-size: 25px;
-        }
-
-        .nav-bar .nav-bar-second a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .nav-bar .nav-bar-second a i {
-            margin-right: 5px;
-            font-size: 20px;
-        }
-        /* 
+    /*     ----nav bar----    */
+    .navbar {
+        padding: 5px 50px;
+      }
+  
+      .navbar-brand,
+      .offcanvas-title {
+        width: 110px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      .dropdown-menu .dropdown-item {
+        color: #fff;
+      }
+  
+      .userside-bar {
+        max-width: 250px;
+      }
+  
+      /* -----dropdown ---*/
+      .custom-dropdown {
+        background-color: white !important;
+      }
+  
+      .custom-dropdown .dropdown-item {
+        color: black !important;
+      }
+  
+      .custom-dropdown .dropdown-item:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        /* Slight gray background on hover */
+      }
+  
 
 /* Container and Form Styling */
+
 .container {
     max-width: 900px;
     margin: auto;
+    margin-top: 75px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -196,17 +188,70 @@ button[type="submit"] {
 </head>
 
 <body>
-    <div class="nav-bar">
-        <div class="nav-bar-first">
-             <i class="fa-solid fa-building-columns"></i>
-            <span>RSGDSA Bank</span>
+    <nav class="navbar navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.jsp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bank"
+              viewBox="0 0 16 16">
+              <path
+                d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+            </svg> RGSDSA</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end bg-primary userside-bar text-white" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header ">
+              <h5 class="offcanvas-title " id="offcanvasDarkNavbarLabel"><svg xmlns="http://www.w3.org/2000/svg" width="25"
+                  height="25" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                  <path
+                    d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+                </svg> RGSDSA</h5>
+                
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+                
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="ManagerAccess.jsp">Home</a>
+                </li>
+                    <li><a href="<%=request.getContextPath()%>/staff" class="nav-link">Staff-List</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Other
+                  </a>
+                  <ul class="dropdown-menu custom-dropdown">
+                    <li><a class="dropdown-item" href="<%=request.getContextPath()%>/staff">Staff Information</a></li>
+                    <li><a class="dropdown-item" href="#">Customer Information</a></li>
+                    <li><a class="dropdown-item" href="staffRegisterIndex.jsp">Staff Creation</a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item"></li>
+                <a class="nav-link " href="index.jsp"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                    <path fill-rule="evenodd"
+                      d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                  </svg> Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="nav-bar-second">
-            <a href=""><i class="fa-regular fa-circle-user"></i></a>
-            <a href=""><i aria-valuemax="logout" class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
-        </div>
-    </div>
-    <div class="container">
+        <ul class="navbar-nav">
+        <li><a href="<%=request.getContextPath()%>/staff" class="nav-link">
+        </a></li>
+        </ul>
+      </nav>
+
+
+    <div class="container UserName">
         <div class="title-bar">
             <h1>Staff Registration</h1>
         </div>
