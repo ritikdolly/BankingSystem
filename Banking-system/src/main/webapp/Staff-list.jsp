@@ -126,7 +126,7 @@
     <div class="row row-CSS">
       <div class="col-10">
         <h2 class="text-success">Staff Information</h2>
-        <a href="staffRegisterIndex.jsp" class="btn btn-success">Add New Staff</a><br>
+        <a href="staffRegisterIndex.jsp" class="btn btn-success">Add New Staff</a><br><br>
 
         <table class="table table-bordered">
           <thead>
