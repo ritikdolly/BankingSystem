@@ -35,11 +35,6 @@
     .footerChange {
       padding: 30px 0px;
   }
-  /*description*/
-    #more{
-      display: none;
-    }
-  
   </style>
 </head>
 
@@ -75,14 +70,10 @@
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">RGSDSA BANK</h1>
         </div>
         <!------- description ----->
-        <p class="col-lg-10 p-2 fs-4" style="width: 100%; min-height:53vh">
-          Bank, an institution that deals in money and its substitutes and provides other money-related services. In its
-          role as a financial intermediary, a bank accepts deposits and makes loans.<span id="dots">...</span><span
-            id="more">Banks are financial institutions that lend money and accept deposits from general public. Banks
-            maintain the flow of money in the country and are important for its economic growth. There are different
-            types of banks that offer different kinds of services to individuals as well as businesses.</span><br><br>
-            <button onclick="myFunction()" class="btn btn-primary" id="myBtn">Read more</button>
-          </p>
+        <p class="col-lg-10 p-2 fs-4 bg-secondary" style="width: 100%; min-height:53vh">Below is an example form built
+          entirely with Bootstrap’s form controls. Each required
+          form group has a validation state that can be triggered by attempting to submit the form without completing
+          it.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
         <form class="p-4 p-md-4  d-flex flex-column justify-content-around" action="loginPage" method="post"
@@ -187,22 +178,5 @@
   </footer>
 
 </body>
-<script>
-  function myFunction() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
-
-    if (dots.style.display === "none") {
-      dots.style.display = "inline";
-      btnText.innerHTML = "Read more";
-      moreText.style.display = "none";
-    } else {
-      dots.style.display = "none";
-      btnText.innerHTML = "Read less";
-      moreText.style.display = "inline";
-    }
-  }
-</script>
 
 </html>
