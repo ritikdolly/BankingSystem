@@ -15,13 +15,12 @@ import Bank.Model.AddInformation;
 /**
  * Servlet implementation class BankingControls
  */
+
 @WebServlet("/loginPage")
 public class BankingControls extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
         String enteredCaptcha = request.getParameter("outCaptch");
@@ -35,13 +34,17 @@ public class BankingControls extends HttpServlet {
     		BankingDao dao = new BankingDao();
     		//System.out.println("in banking Control File....!");// comment....
     		
-    		addCust.setClintUserId(request.getParameter("userId"));
+    		addCust.setClientUserId(request.getParameter("userId"));
     		addCust.setClientPassword(request.getParameter("password"));
     		
+    		System.out.println(addCust.getClientUserId()+" in bank ctrl file client");    		
+			System.out.println(addCust.getClientPassword()+" in bank ctrl file client");
+			
     		if(dao.loginUsers(addCust)) {
     		
+    			
     		if(addCust.getClientPassword().equals(addCust.getServerPassword())
-    				&& addCust.getClintUserId().equals(addCust.getServerUserId())){
+    				&& addCust.getClientUserId().equals(addCust.getServerUserId())){
     							
 				String type=addCust.getType();
 				
