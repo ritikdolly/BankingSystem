@@ -12,15 +12,29 @@ import java.io.IOException;
 import Bank.Dao.BankingDao;
 import Bank.Model.AddInformation;
 
+<<<<<<< HEAD
+
+@WebServlet("/userLogin")
+=======
 /**
  * Servlet implementation class BankingControls
  */
 
 @WebServlet("/loginPage")
+>>>>>>> branch 'Sahdev' of https://github.com/ritikdolly/BankingSystem.git
 public class BankingControls extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
+<<<<<<< HEAD
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	
+=======
+>>>>>>> branch 'Sahdev' of https://github.com/ritikdolly/BankingSystem.git
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
         String enteredCaptcha = request.getParameter("outCaptch");
@@ -41,8 +55,16 @@ public class BankingControls extends HttpServlet {
 			System.out.println(addCust.getClientPassword()+" in bank ctrl file client");
 			
     		if(dao.loginUsers(addCust)) {
+<<<<<<< HEAD
+    			
+		        System.out.println(addCust.getClintUserId()+" in clientSide");
+	    		System.out.println(addCust.getClientPassword()+" in clientside");
+	    		System.out.println(addCust.getServerUserId()+" in serverSide");
+	    		System.out.println(addCust.getServerPassword()+" in serverSide");
+=======
     		
     			
+>>>>>>> branch 'Sahdev' of https://github.com/ritikdolly/BankingSystem.git
     		if(addCust.getClientPassword().equals(addCust.getServerPassword())
     				&& addCust.getClientUserId().equals(addCust.getServerUserId())){
     							
@@ -68,6 +90,7 @@ public class BankingControls extends HttpServlet {
 					System.out.println("Worng type....!");
 					break;
 				}	
+				
     		}else {
 				msg = "Oops! Wrong userId or Password";
 				}
