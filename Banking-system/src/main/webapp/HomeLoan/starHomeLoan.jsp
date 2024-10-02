@@ -192,7 +192,7 @@
 <body>
     <nav class="navbar navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.jsp">
+            <a class="navbar-brand" href="../index.jsp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bank"
                     viewBox="0 0 16 16">
                     <path
@@ -231,12 +231,13 @@
                                 <li><a class="dropdown-item" href="starTopUpLoan.jsp">STAR TOP UP LOAN</a></li>
                                 <li><a class="dropdown-item" href="starPravasiHomeLoan.jsp">Star Pravasi Home Loan</a></li>
                             </ul>
+                            </li>
                             <li class="nav-item">
-                            <a class="nav-link " href="#">Calculator</a>
-                            </li>  
-                        <li class="nav-item">
-                        <a class="nav-link " href="loginPage.jsp">SignUp</a>
-                        </li>
+	                        <a class="nav-link " href="../calculator.jsp">Calculator</a>
+	                        </li>
+	                        <li class="nav-item">
+	                        <a class="nav-link " href="../loginPage.jsp">Login</a>
+	                        </li>
                     </ul>
                 </div>
             </div>

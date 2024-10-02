@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Loan</title>
+    <title>Personal Loan | features</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
@@ -235,7 +235,7 @@
 <body>
     <nav class="navbar navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.jsp">
+            <a class="navbar-brand" href="../index.jsp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bank"
                     viewBox="0 0 16 16">
                     <path
@@ -260,7 +260,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="loginPage.jsp">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../loginPage.jsp">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -274,10 +274,10 @@
                             </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="calculator.jsp">Calculator</a>
-                            </li>    
-                        <li class="nav-item"></li>
-                        <a class="nav-link " href="loginPage.jsp">Log-in</a>
+                        <a class="nav-link " href="../calculator.jsp">Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link " href="../loginPage.jsp">Login</a>
                         </li>
                     </ul>
                 </div>
