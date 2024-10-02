@@ -29,7 +29,7 @@ public class BankingDao {
 			con = BankingDao.getConnection();
 			con.setAutoCommit(false);
 			st =con.prepareStatement("SELECT * FROM login where UserId = ? and password =?");
-			st.setString(1,login.getClientPassword());
+			st.setString(1,login.getClientUserId());
 			st.setString(2,login.getClientPassword());
 			ResultSet result = st.executeQuery();
 			if(result.next() ) {
@@ -37,6 +37,7 @@ public class BankingDao {
 				login.setServerPassword(result.getString("password"));
 		        login.setType(result.getString("type"));
 		        login.setUserName(result.getString("UserName"));
+		        System.out.println("in line 1 bank dao");
 		        flag=true;
 			}else {
 				con.rollback();
@@ -58,6 +59,8 @@ public class BankingDao {
 				e3.printStackTrace();
 			}
 		}
+		System.out.println(login.getServerUserId()+" in bank dao file");    		
+		System.out.println(login.getServerPassword()+" in bank dao file");
 		return flag;
 	}
 	
