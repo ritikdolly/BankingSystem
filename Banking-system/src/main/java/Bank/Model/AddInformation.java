@@ -10,17 +10,17 @@ type varchar(10)
 
 public class AddInformation {
 	//login table
-	private String clintUserId;
+	private String clientUserId;
 	private String serverUserId;
 	private String clientPassword;
 	private String serverPassword;
 	private String type;
 	private String userName;
-	public String getClintUserId() {
-		return clintUserId;
+	public String getClientUserId() {
+		return clientUserId;
 	}
-	public void setClintUserId(String clintUserId) {
-		this.clintUserId = clintUserId;
+	public void setClientUserId(String clientUserId) {
+		this.clientUserId = clientUserId;
 	}
 	public String getServerUserId() {
 		return serverUserId;
@@ -49,15 +49,16 @@ public class AddInformation {
 	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName) {		
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	@Override
 	public String toString() {
-		return "AddInformation [clintUserId=" + clintUserId + ", serverUserId=" + serverUserId + ", clientPassword="
+		return "AddInformation [clientUserId=" + clientUserId + ", serverUserId=" + serverUserId + ", clientPassword="
 				+ clientPassword + ", serverPassword=" + serverPassword + ", type=" + type + ", userName=" + userName
 				+ "]";
 	}
+	
 	
 	
 }

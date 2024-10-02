@@ -193,7 +193,7 @@
 <body>
     <nav class="navbar navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.jsp">
+            <a class="navbar-brand" href="index.jsp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bank"
                     viewBox="0 0 16 16">
                     <path
@@ -231,10 +231,10 @@
                                 <li><a class="dropdown-item" href="starVehicleEnitiesLoan.jsp">Vehicle Loan- Entities ... </a></li>
                             </ul>
                         <li class="nav-item">
-                            <a class="nav-link " href="../calculator.jsp">Calculator</a>
+                            <a class="nav-link " href="calculator.jsp">Calculator</a>
                         </li>
                         <li class="nav-item"></li>
-                        <a class="nav-link " href="../loginPage.jsp">SignUp</a>
+                        <a class="nav-link " href="loginPage.jsp">SignUp</a>
                         </li>
                     </ul>
                 </div>
