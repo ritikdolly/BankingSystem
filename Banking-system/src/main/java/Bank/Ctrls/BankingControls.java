@@ -12,16 +12,18 @@ import java.io.IOException;
 import Bank.Dao.BankingDao;
 import Bank.Model.AddInformation;
 
-/**
- * Servlet implementation class BankingControls
- */
-@WebServlet("/loginPage")
+
+@WebServlet("/userLogin")
 public class BankingControls extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
         String enteredCaptcha = request.getParameter("outCaptch");
@@ -39,7 +41,11 @@ public class BankingControls extends HttpServlet {
     		addCust.setClientPassword(request.getParameter("password"));
     		
     		if(dao.loginUsers(addCust)) {
-    		
+    			
+		        System.out.println(addCust.getClintUserId()+" in clientSide");
+	    		System.out.println(addCust.getClientPassword()+" in clientside");
+	    		System.out.println(addCust.getServerUserId()+" in serverSide");
+	    		System.out.println(addCust.getServerPassword()+" in serverSide");
     		if(addCust.getClientPassword().equals(addCust.getServerPassword())
     				&& addCust.getClintUserId().equals(addCust.getServerUserId())){
     							
@@ -65,6 +71,7 @@ public class BankingControls extends HttpServlet {
 					System.out.println("Worng type....!");
 					break;
 				}	
+				
     		}else {
 				msg = "Oops! Wrong userId or Password";
 				}

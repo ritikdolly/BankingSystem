@@ -76,7 +76,7 @@
           it.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-4  d-flex flex-column justify-content-around" action="loginPage" method="post"
+        <form class="p-4 p-md-4  d-flex flex-column justify-content-around" action="userLogin" method="post"
           style="height: 500px; width:400px; background-color:#d3d5d7; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
           <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" style="width: 100%;"
             class="bi bi-person-square mb-2" viewBox="0 0 16 16">
@@ -123,8 +123,9 @@
       %>
           <h5 style="width: 100%; color:red; font-weight:600" class="text-center"><%out.print(msg);%></h5>
           <%} %>
+          </form>
       </div>
-      </form>
+    
     </div>
     <hr class="my-4 ">
 
