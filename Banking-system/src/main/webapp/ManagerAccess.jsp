@@ -104,13 +104,20 @@
                 Other
               </a>
               <ul class="dropdown-menu custom-dropdown">
-                <li><a class="dropdown-item" href="<%= request.getContextPath()%>/staffModify?action=all">Staff Information</a></li>
+                <li><a class="dropdown-item" href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}">Staff Information</a></li>
                 <li><a class="dropdown-item" href="#">Customer Information</a></li>
-                <li><a class="dropdown-item" href="staffRegisterIndex.jsp">Staff Creation</a></li>
+                <li><a class="dropdown-item" href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}">Staff Creation</a></li>
               </ul>
             </li>
+            <li class="nav-item">
+                        <a class="nav-link " href="calculator.html">Calculator</a>
+             </li>
+             <li class="nav-item">
+                        <a class="nav-link " href="<%= request.getContextPath()%>/staffModify?action=mainUserDetail&mainUser=${mainUser}">Your detail</a>
+             </li>
+             
 
-            <li class="nav-item"></li>
+            <li class="nav-item">
             <a class="nav-link " href="index.jsp"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
               <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
@@ -139,7 +146,7 @@
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Staff Creation</h5>
           <p class="fs-4">Some representative placeholder content for the first slide.</p>
-          <a class="btn btn-primary" href="staffRegisterIndex.jsp"  role="button">Employee Creation</a>
+          <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}"  role="button">Employee Creation</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -149,7 +156,7 @@
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Staff Information</h5>
           <p class="fs-4">Some representative placeholder content for the second slide.</p>
-          <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=all"  role="button">Employees Informations</a>
+          <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}"  role="button">Employees Informations</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -182,7 +189,7 @@
             blow your mind.</span></h2>
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
         </p>
-        <a class="btn btn-primary" href="staffRegisterIndex.jsp"  role="button">Employee Creation <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}"  role="button">Employee Creation <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
           </svg></a>
       </div>
@@ -199,7 +206,7 @@
             yourself.</span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
           layout would work with some actual real-world content in place.</p>
-          <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=all"  role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}"  role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
           </svg> Employees Details</a>
       </div>

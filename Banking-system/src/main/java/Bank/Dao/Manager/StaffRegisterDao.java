@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 
+import Bank.Model.UserInfoModels;
 import Bank.Model.staff.AddStaff;
 
 public class StaffRegisterDao {
@@ -420,6 +421,87 @@ public class StaffRegisterDao {
 		        }
 		    }
 		    return emps;
+		}
+		
+		public UserInfoModels getMainUserDetail( String mainUser) {
+			Connection con=null;
+			PreparedStatement st= null;
+			ResultSet rs= null;
+			String query1="select type from login where UserId= ? ; ";
+			String query2=null;
+			UserInfoModels info=  new UserInfoModels();
+			String userType =null;
+			String tableName=null;
+			
+			try {
+				con= StaffRegisterDao.getConnection();
+				con.setAutoCommit(false);
+				System.out.println("in staff reg dao mainUser Detail line -1");
+				st=con.prepareStatement(query1);
+				st.setString(1, mainUser);
+				rs= st.executeQuery();
+				while (rs.next()){
+					userType = rs.getString("type");	
+				}
+				System.out.println("in staff reg dao mainUser Detail line -2");
+				switch (userType) {
+				case "admin":
+					query2="SELECT * FROM admins where userId= ? ;";
+					tableName="admins";
+					break;
+				case "staff":
+					query2="SELECT * FROM staff where userId= ? ;";
+					tableName="staff";
+					break;
+				case "customer":
+					query2="SELECT * FROM customer where userId= ? ;";
+					tableName="customer";
+					break;
+				}
+				System.out.println("in staff reg Dao TableName= "+tableName);
+							
+				System.out.println("in staff reg dao mainUser Detail line -3");
+				st=con.prepareStatement(query2);
+				st.setString(1, mainUser);
+				rs= st.executeQuery();
+				System.out.println("in staff reg dao mainUser Detail line -4");
+				while(rs.next()) {
+					String EmpId= rs.getString("UserId");
+					String fname= rs.getString("fname");
+					String lname= rs.getString("lname");
+					String dob= rs.getString("dob");
+					String fatherName= rs.getString("fatherName");
+					String address= rs.getString("address");
+					String city= rs.getString("city");
+					String district= rs.getString("district");
+					String state= rs.getString("state");
+					String pincode= rs.getString("pincode");
+					String phoneNo= rs.getString("phoneNo");
+					String email= rs.getString("email");
+					String emergencyNO= rs.getString("emergencyNO");
+					String aadharNo= rs.getString("aadharNo");
+					String panNO= rs.getString("panNO");
+					String accountNo=rs.getString("accountNo");
+					info=new UserInfoModels(EmpId,fname,lname,dob,fatherName,address,city,district,state,pincode,phoneNo,email,emergencyNO,aadharNo,panNO,accountNo);
+					System.out.println("in staff reg dao mainUser Detail line -5");	
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				try {
+					if(con != null)
+						con.close();
+					if(st != null)
+						st.close();
+					if(rs != null) {
+						rs.close();
+					}
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+			return info;
 		}
 
 	}

@@ -276,7 +276,7 @@
                             </ul>
                         </li>
                        <li class="nav-item">
-                        <a class="nav-link " href="../calculator.jsp">Calculator</a>
+                        <a class="nav-link " href="../calculator.html">Calculator</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link " href="../loginPage.jsp">Login</a>

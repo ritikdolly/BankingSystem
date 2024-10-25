@@ -228,7 +228,7 @@
 										... </a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link "
-							href="../calculator.jsp">Calculator</a></li>
+							href="../calculator.html">Calculator</a></li>
 						<li class="nav-item"><a class="nav-link "
 							href="../loginPage.jsp">Login</a></li>
 					</ul>

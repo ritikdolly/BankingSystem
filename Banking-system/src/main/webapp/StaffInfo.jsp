@@ -1,311 +1,430 @@
-<%@page import="Bank.Model.staff.AddStaff"%>
-<%@page import="Bank.Model.AddInformation"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Information</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        body {
-            background-color: #f7f8fa;
-            color: #333;
-            padding-top: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            height: 95vh;
-        }
-        
-        /* Navbar Styling */
-        .nav-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #007bff;
-            padding: 20px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .nav-bar .nav-bar-first {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-bar .nav-bar-first i {
-            margin-right: 10px;
-            font-size: 25px;
-        }
-        
-        .nav-bar .nav-bar-second a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .nav-bar .nav-bar-second a i {
-            margin-right: 5px;
-            font-size: 20px;
-        }
-        
-        .container {
-            background-color: transparent;
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            flex-direction: column;
-            padding: 40px;
-            max-width: 900px;
-            box-shadow: 0px 0px 5px #333;
-            border-radius: 5px;
-        }
-        #staffForm{
-            width: 100%;
-        }
-        
-        .infoBoxes {
-            max-width: 100%;
-            display: flex;
-            justify-content: space-around;
-            flex-direction: column;
-            background-color: transparent;
-            padding: 10px;
-            margin: 10px;
-            color: rgb(7, 7, 6);
-        }
-        
-        .infoBoxes label {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            font-size: 15px;
-            margin-bottom: 10px;
-            font-weight: 530;
-        }
-        
-        .infoBoxes label input {
-            flex-grow: 1;
-            margin-left: 10px;
-            padding: 5px;
-            font-size: 15px;
-            color: rgb(7, 7, 6);
-            border: none;
-            background-color: transparent;
-            border-radius: 4px;
-        }
-        
-        .infoBoxes .detail {
-            width: 100%;
-            margin-top: 10px;
-        }
-        
-        /* Print-specific styles */
-        @media print {
-        
-            /* Hide all elements except the container */
-            body * {
-                visibility: hidden;
-            }
-        
-            .container,
-            .container * {
-                visibility: visible;
-            }
-        
-            /* Remove box-shadow, padding, and other unnecessary styles */
-            .container {
-                max-width: 100%;
-	            display: flex;
-	            justify-content: space-around;
-	            flex-direction: column;
-	            background-color: transparent;
-	            padding: 10px;
-	            margin: 10px;
-	            color: rgb(7, 7, 6);
-            }
-        
-            /* Remove background color from body */
-            body {
-                background-color: white;
-                padding-top: 0;
-            }
-        }
-        
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Confirmation</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet" />
+<style>
+body {
+	background-color: #f2f5f9;
+	font-family: 'Helvetica Neue', sans-serif;
+	color: #333;
+}
 
+/*     ----nav bar----    */
+.navbar {
+	padding: 5px 50px;
+}
+
+.navbar-brand, .offcanvas-title {
+	width: 110px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dropdown-menu .dropdown-item {
+	color: #fff;
+}
+
+.userside-bar {
+	max-width: 250px;
+}
+
+/* -----dropdown ---*/
+.custom-dropdown {
+	background-color: white !important;
+}
+
+.custom-dropdown .dropdown-item {
+	color: black !important;
+}
+
+.custom-dropdown .dropdown-item:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+	/* Slight gray background on hover */
+}
+
+.container {
+	max-width: 850px;
+	margin-top: 40px;
+	background-color: #ffffff;
+	padding: 20px 30px;
+	border-radius: 8px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+	color: #28a745;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.section-title {
+	font-size: 1.25rem;
+	color: #17a2b8;
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #17a2b8;
+}
+
+.details, .nominee-section {
+	margin-bottom: 30px;
+}
+
+.details p, .nominee-section p {
+	font-size: 1rem;
+	line-height: 1.8;
+	margin: 0;
+}
+
+.divider {
+	border-bottom: 1px solid #dee2e6;
+	margin: 20px 0;
+}
+
+.print-btn {
+	display: block;
+	margin: 30px auto 0;
+	background-color: #007bff;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: bold;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.print-btn:hover {
+	background-color: #0056b3;
+}
+
+.icon {
+	color: #17a2b8;
+	margin-right: 10px;
+}
+
+.card {
+	border: 1px solid #dee2e6;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.sub-title {
+	font-weight: 510;
+	color: #088cde;
+}
+
+@media print {
+	nav, footer, hr {
+		display: none;
+	}
+	body {
+		margin: 0;
+		background: none;
+	}
+	.container .details:nth-child(4) {
+		margin: 10px;
+		padding: 50px 15px 15px 15px;
+	}
+	.container .details {
+		margin: 10px;
+		padding: 15px;
+	}
+	.container button {
+		display: none;
+	}
+	@page {
+		margin: 0;
+	}
+	body {
+		margin: 1cm;
+	}
+}
+
+/*     Footer   */
+.footerChange {
+	padding: 30px 0px;
+}
+</style>
 </head>
 
 <body>
-    <div class="nav-bar">
-        <div class="nav-bar-first">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>RSGDSA Bank</span>
-        </div>
-        <div class="nav-bar-second">
-            <a href=""><i class="fa-regular fa-circle-user"></i></a>
-            <a href="loginPage.jsp"><i aria-valuemax="logout"
-                    class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
-        </div>
-    </div>
-    <div class="container">
-        <div class="title-bar">
-            <h3>Staff Information</h3>
-        </div>
-        <div id="staffForm">
-            <div class="infoBoxes">
-                <label for="userid">UserID : <input type="text" value="${empId}" id="userid" disabled name="userid"></label>
-                <label for="password">Password : <input type="text" value="${pwd}" id="password" disabled name="pwd" /></label>
-            </div>
-            <div class="infoBoxes">
-                <h4>Personal Information</h4>
-                <label for="f-name">Name : <input type="text" value="${fname} ${lname}" id="name" disabled name="name" /></label>
-                <label for="gender">Gender : <input type="text" value="${gender}" id="gender" disabled name="gender" /></label>
-                <label for="dob">DOB : <input type="date" value="${dob}" id="dob" disabled name="dob" /></label>
-                <label for="father-Name">Father's Name : <input type="text" value="${fatherName}" id="father-Name" disabled
-                        name="fatherName" /></label>
-                <label for="nationality">Nationality : <input type="text" value="${nationally}" id="nationality" disabled
-                        name="nationality" /></label>
-                <label for="address">Address : <input type="text" id="address" value="${address}" disabled name="address" /></label>
-                <label>City : <input type="text" value="${city}" disabled name="city" /> </label>
-                <label>District : <input type="text" value="${district}" disabled name="district" /></label>
-                <label>State : <input type="text" value="${state}" disabled name="state" /></label>
-                <label>Pin Code :<input type="Number" value="${pinCode}" disabled id="pin-code" name="pincode" /></label>
-                <label for="phone-number">Phone Number :<input type="text" value="${phoneNo}" id="phone-number" disabled /></label>
-                <label for="email">Email :<input type="email" value="${email}" id="email" disabled name="email" /></label>
-                <label for="emergency-number">Emergency Number :<input type="text" value="${emergencyNO}"  value="${emergencyNO}" disabled maxlength="10"
-                        id="emergency-number" name="emergencyNo" /></label>
-            </div>
-            <div class="infoBoxes">
-                <h4>Employment Information</h4>
-                <label for="position">Position :<input type="text" value="${postion}" disabled name="position" id="position"></label>
-                <label for="joining-date">Date of joining :<input type="date" value="${dateofJoin}" disabled name="joiningdate"></label>
-                <label for="work-schedule">Employment Workschedule :<input type="text" value="${workschedule}" disabled name="workschedule"
-                        id="work-schedule"></label>
-                <label for="account-number">Account Number :<input type="text" value="${accNo}" disabled name="accountnumber"
-                        id="account-number"></label>
-                <label for="bank-name">Bank Name :<input type="text" value="${bankName}" disabled name="bankname" id="bank-name"></label>
-                <label for="tax-Id">Tax Identification Number :<input type="text" value="${taxId}" disabled name="taxId"
-                        id="tax-Id"></label>
-                <label for="aadharNo">Aadhar Number :<input type="text" value="${aadharNo}" disabled name="aadharNo"
-                        id="aadharNo"></label>
-                <label for="panNo">PAN Number :<input type="text" value="${panNo}" disabled name="panNo"
-                        id="panNo"></label>
-            </div>
-            <div class="infoBoxes">
-                <h4>Education Qualification</h4>
-                <h5>Matriculate</h5>
-                <div class="detail">
-                    <label for="year10">Passing Year :<input type="text" value="${year10 }" disabled id="year10" name="year10"></label>
-                    <label for="school-name10">School Name :<input type="text" value="${schoolName10}" disabled id="school-name10"
-                            name="schoolname10"></label>
-                    <label for="tenth-percent">Percentage :<input type="number" value="${tenthpercent}" disabled id="tenth-percent"
-                            name="tenthpercent"></label>
-                </div>
-                <h5>High School Graduate</h5>
-                <div class="detail">
-                    <label for="year12">Passing Year :<input type="text" id="year12" value="${year12}" disabled name="year12"></label>
-                    <label for="school-name12">School/College Name :<input type="text" value="${schoolName12}" disabled id="school-name12"
-                            name="schoolname12"></label>
-                    <label for="twelfth-percent">Percentage :<input type="number" value="${twelthpercent}" disabled id="tenth-percent"
-                            name="twelfthpercent"></label>
-                </div>
-                <h5>Other Qualification</h5>
-                <div class="detail">
-                    <label for="degree-name">Degree Name :<input type="text" value="${degreeName}" disabled id="degree-name"
-                            name="degreename"></label>
-                    <label for="year-other">Passing Year :<input type="text" value="${degreeyear}" disabled id="year-other"
-                            name="degreeyear"></label>
-                    <label for="college-name-other">College Name : <input type="text" value="${collegeName}" disabled id="college-name-other"
-                            name="collegename"></label>
-                    <label for="degree-percent">Percentage :<input type="number" value="${degreepercent}" disabled id="degree-percent"
-                            name="degreepercent"></label>
-                </div>
-            </div>
-            <div class="infoBoxes">
-                <h4>Employment History</h4>
+	<nav class="navbar navbar-dark bg-primary fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="index.jsp"> <svg
+					xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+					fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+            <path
+						d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+          </svg> RGSDSA
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+				aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div
+				class="offcanvas offcanvas-end bg-primary userside-bar text-white"
+				tabindex="-1" id="offcanvasDarkNavbar"
+				aria-labelledby="offcanvasDarkNavbarLabel">
+				<div class="offcanvas-header ">
+					<h5 class="offcanvas-title " id="offcanvasDarkNavbarLabel">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+							fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                <path
+								d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+              </svg>
+						RGSDSA
+					</h5>
+					<button type="button" class="btn-close btn-close-white"
+						data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="<%= request.getContextPath()%>/staffModify?action=home&mainUser=${mainUser}">Home</a></li>
 
-                <label for="previous-Emp">Previous Employer :<input type="text" value="${previousEmp}" disabled name="previousEmp"
-                        id="previousEmp"></label>
-                <label for="emp-position">Position :<input type="text" value="${empposition}" disabled name="empposition"
-                        id="emp-position"></label>
-                <label for="emp-duration">Employment Duration :<input type="number" value="${empDuration}" disabled id="emp-duration"
-                        name="empduration"></label>
-                <label for="leaving-reason">Reason for Leaving :<input type="text" value="${leavingreson}" disabled id="leaving-reason"
-                        name="leavingreason"></label>
-            </div>
-            <div class="infoBoxes">
-                <h4>References</h4>
-                <h5>Reference No.1</h5>
-                <div class=" detail ">
-                    <label for="ref1">Reference Name :<input type="text" value="${refName1}"  name="reference1" disabled id="ref1"></label>
-                    <label for="relation1">RelationShip :<input type="text" value="${relation1}" name="refrelation1" disabled
-                            id="relation1"></label>
-                    <label for="ph-number1">Phone Number :<input type="text" value="${refPhNo1}" name="refphno1" disabled
-                            id="ph-number1"></label>
-                    <label for="email1">Email :<input type="email" name="refemail1" value="${refEmail1}" disabled id="email1"></label>
-                </div>
-                <h5>Reference No.1</h5>
-                <div class="detail">
-                    <label for="ref2">Reference Name : <input type="text" value="${refName2}" name="reference2" disabled id="ref2"></label>
-                    <label for="relation2">RelationShip :<input type="text" value="${relation2}" name="refrelation2" disabled
-                            id="relation2"></label>
-                    <label for="ph-number2">Phone Number :<input type="text" value="${refPhNo2}" name="refphno2" disabled
-                            id="ph-number2"></label>
-                    <label for="email2">Email :<input type="email" name="refemail2" value="${refEmail2}" disabled id="email2"></label>
-                </div>
-            </div>
-            <!-- Print Button -->
-            <button onclick="printContainer()" class="btn btn-primary mt-4">
-                <i class="fa fa-print"></i> Print
-            </button>
-        </div>
-    </div>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Other </a>
+							<ul class="dropdown-menu custom-dropdown">
+								<li><a class="dropdown-item"
+									href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}">Staff
+										Information</a></li>
+								<li><a class="dropdown-item" href="#">Customer
+										Information</a></li>
+								<li><a class="dropdown-item"
+									href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}">Staff
+										Creation</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link "
+							href="calculator.html">Calculator</a></li>
+						<li class="nav-item"><a class="nav-link "
+							href="<%= request.getContextPath()%>/staffModify?action=mainUserDetail&mainUser=${mainUser}">Your
+								detail</a></li>
+						<li class="nav-item"></li>
+						<a class="nav-link " href="index.jsp"><svg
+								xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-box-arrow-in-right"
+								viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+									d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                  <path fill-rule="evenodd"
+									d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                </svg> Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h3>
+			<i class="fa fa-check-circle icon"></i>Registration Successful
+		</h3>
+
+		<div class="details card">
+			<h5 class="section-title">
+				<i class="fa fa-user icon"></i>Personal Details
+			</h5>
+			<p>
+				<strong>USer ID: </strong> ${empId} 
+			</p>
+			<p>
+				<strong>Password: </strong> ${pwd}
+			</p>
+			<p>
+				<strong>Name: </strong> ${fname} ${lname}
+			</p>
+			<p>
+				<strong>Gender: </strong> ${gender}
+			</p>
+			<p>
+				<strong>Date of Birth: </strong> ${dob}
+			</p>
+			<p>
+				<strong>Father's Name: </strong> ${fatherName}
+			</p>
+			<p>
+				<strong>Nationality: </strong> ${nationally}
+			</p>
+			<p>
+				<strong>Address: </strong> ${address}
+			</p>
+			<p>
+				<strong>City: </strong> ${city}
+			</p>
+			<p>
+				<strong>District: </strong> ${district}
+			</p>
+			<p>
+				<strong>State: </strong> ${state}
+			</p>
+			<p>
+				<strong>Pin Code: </strong> ${pinCode}
+			</p>
+
+			<p>
+				<strong>Aadhaar Number: </strong> ${aadhaarNo}
+			</p>
+			<p>
+				<strong>Pan Number: </strong> ${panNo}
+			</p>
+			<p>
+				<strong>Email: </strong> ${email}
+			</p>
+			<p>
+				<strong>Phone Number: </strong> ${phoneNo}
+			</p>
+			<p>
+				<strong>Emergency Number: </strong> ${emergencyNO}
+			</p>
+		</div>
+
+		<div class="details card">
+			<h5 class="section-title">
+				<i class="fa fa-user icon"></i>Employment Information
+			</h5>
+			<p>
+				<strong>Position : </strong>${postion}
+			</p>
+			<p>
+				<strong>Date of joining: </strong>${dateofJoin}
+			</p>
+			<p>
+				<strong>Employment Workschedule: </strong>${workschedule}
+			</p>
+			<p>
+				<strong>Account Number: </strong>${accNo}
+			</p>
+			<p>
+				<strong>Bank Name: </strong>${bankName}
+			</p>
+			<p>
+				<strong>Tax Identification Number: </strong>${taxId}
+			</p>
+		</div>
+
+		<div class="details card">
+
+			<h5 class="section-title">
+				<i class="fa fa-user icon"></i>Education Qualification
+			</h5>
+			<!-- 10th -->
+			<h5 class="sub-title">Matriculate</h5>
+			<p>
+				<strong>Passing Year: </strong>${year10}
+			</p>
+			<p>
+				<strong>School Name: </strong>${schoolName10}
+			</p>
+			<p>
+				<strong>Percentage: </strong>${tenthpercent}
+			</p>
+			<!-- 12th -->
+			<h5 class="sub-title">High School Graduate</h5>
+			<p>
+				<strong>Passing Year: </strong>${year12}
+			</p>
+			<p>
+				<strong>School/college Name: </strong>${schoolName12}
+			</p>
+			<p>
+				<strong>Percentage: </strong>${twelthpercent}
+			</p>
+			<!-- 12th -->
+			<h5 class="sub-title">Other Qualification</h5>
+			<p>
+				<strong>Degree Name: </strong>${degreeName}
+			</p>
+			<p>
+				<strong>Passing Year: </strong>${degreeyear}
+			</p>
+			<p>
+				<strong>School/college Name: </strong>${collegeName}
+			</p>
+			<p>
+				<strong>Percentage: </strong>${degreepercent}
+			</p>
+
+		</div>
+
+		<div class="nominee-section card">
+			<h5 class="section-title">
+				<i class="fa fa-user-friends icon"></i>References 1
+			</h5>
+			<p>
+				<strong>Reference Name:</strong> ${refName1}
+			</p>
+			<p>
+				<strong>RelationShip:</strong> ${relation1}
+			</p>
+			<p>
+				<strong>Phone Number:</strong> ${refPhNo1}
+			</p>
+			<p>
+				<strong>Email:</strong> ${refEmail1}
+			</p>
+		</div>
+
+		<div class="nominee-section card">
+			<h5 class="section-title">
+				<i class="fa fa-user-friends icon"></i>Reference 2
+			</h5>
+			<p>
+				<strong>Reference Name:</strong> ${refName2}
+			</p>
+			<p>
+				<strong>Relationship:</strong> ${relation2}
+			</p>
+			<p>
+				<strong>Phone Number:</strong> ${refPhNo2}
+			</p>
+			<p>
+				<strong>Email:</strong> ${refEmail2}
+			</p>
+		</div>
+
+		<button class="print-btn" onclick="window.print()">
+			<i class="fa fa-print icon"></i>Print
+		</button>
+	</div>
+
+	<hr class="featurette-divider ">
+
+	<footer class="footerChange">
+		<div style="padding: 0px 80px;">
+			<p class="float-end">
+				<a href="#">Back to top<svg xmlns="http://www.w3.org/2000/svg"
+						width="16" height="16" fill="currentColor" class="bi bi-arrow-up"
+						viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+							d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
+            </svg></a>
+			</p>
+			<p>
+				© 2024–2025 RGSDSA Bank, Inc. · <a href="#">Privacy</a> · <a
+					href="#">Terms</a>
+			</p>
+		</div>
+	</footer>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script>
-    function printContainer() {
-        // Hide all elements except the container
-        const body = document.body;
-        const container = document.querySelector('.container');
-        const otherElements = body.children;
-
-        for (let i = 0; i < otherElements.length; i++) {
-            if (otherElements[i] !== container) {
-                otherElements[i].style.display = 'none';
-            }
-        }
-
-        // Print the container content
-        window.print();
-
-        // Restore the visibility of all elements
-        for (let i = 0; i < otherElements.length; i++) {
-            otherElements[i].style.display = '';
-        }
-    }
-</script>
 
 </html>
