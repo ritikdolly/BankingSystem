@@ -66,7 +66,7 @@
 	transition: ease 1s;
 }
 
-#more{
+#more {
 	display: none;
 }
 </style>
@@ -115,10 +115,7 @@
 								<li><a class="dropdown-item"
 									href="<%=request.getContextPath()%>/customerModify?action=all">Customer
 										Information</a></li>
-								<li><a class="dropdown-item" href="#">Customer
-										Information</a></li>
-								<li><a class="dropdown-item" href="staffRegisterIndex.jsp">Customer
-										Creation</a></li>
+								<li><a class="dropdown-item" href="#">Customer Creation</a></li>
 							</ul></li>
 
 						<li class="nav-item"></li>
@@ -152,13 +149,13 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img
-					src="https://www.chase.com/content/services/rendition/image.large.png/unified-assets/photography/articles/primary/banking/seo_traditional_vs_online_banking_07222022.png"
+					src="https://media.istockphoto.com/id/1927881398/photo/group-of-business-persons-talking-in-the-office.jpg?s=2048x2048&w=is&k=20&c=R-BpbX_SzMA3IvcNN4L789w8XDx7hum4QESOv538Pw8="
 					height="700" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
 					<h5 class="fs-1">Customer Creation</h5>
 					<p class="fs-4">Some representative placeholder content for the
 						first slide.</p>
-					<a class="btn btn-primary" href="staffRegisterIndex.jsp"
+					<a class="btn btn-primary" href="CustomerRegister.jsp"
 						role="button">Customer Creation</a>
 				</div>
 			</div>
@@ -204,8 +201,7 @@
 		<!-- First Box for Emp Create -->
 		<div class="row featurette rounded-bottom-1 bg-body-secondary">
 			<div class="col-md-7">
-				<h2 class="featurette-heading fw-normal lh-1">
-					Customer Creation
+				<h2 class="featurette-heading fw-normal lh-1">Customer Creation
 				</h2>
 				<p class="lead">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
@@ -216,9 +212,11 @@
 						sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at
 						libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae
 						dui eget tellus gravida venenatis. Integer fringilla congue eros
-						non fermentum. Sed dapibus pulvinar nibh tempor porta.
-				</p><button onclick="myFunction()" id="myBtn">Read more</button>
-				<a class="btn btn-primary" href="CustomerCreate.jsp" role="button">Create Customer<svg xmlns="http://www.w3.org/2000/svg" width="16"
+						non fermentum. Sed dapibus pulvinar nibh tempor porta. 
+				</p>
+				<button onclick="myFunction()" id="myBtn">Read more</button>
+				<a class="btn btn-primary" href="CustomerRegister.jsp" role="button">Create
+					Customer<svg xmlns="http://www.w3.org/2000/svg" width="16"
 						height="16" fill="currentColor" class="bi bi-arrow-right"
 						viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -235,9 +233,8 @@
 		<!--   Second Box for  Emp Information    -->
 		<div class="row featurette rounded-bottom-1 bg-body-secondary">
 			<div class="col-md-6 order-md-2">
-				<h2 class="featurette-heading fw-normal lh-1">
-					Customer Information
-				</h2>
+				<h2 class="featurette-heading fw-normal lh-1">Customer
+					Information</h2>
 				<p class="lead">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 					imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span
@@ -247,8 +244,9 @@
 						sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at
 						libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae
 						dui eget tellus gravida venenatis. Integer fringilla congue eros
-						non fermentum. Sed dapibus pulvinar nibh tempor porta.
-				</p><button onclick="myFunction()" id="myBtn">Read more</button>
+						non fermentum. Sed dapibus pulvinar nibh tempor porta. 
+				</p>
+				<button onclick="myFunction()" id="myBtn">Read more</button>
 				<a class="btn btn-primary"
 					href="<%=request.getContextPath()%>/customerModify?action=all"
 					role="button"><svg xmlns="http://www.w3.org/2000/svg"
@@ -267,9 +265,7 @@
 		<!--   Third Box for customer Details...-->
 		<div class="row featurette rounded-bottom-1 bg-body-secondary">
 			<div class="col-md-7">
-				<h2 class="featurette-heading fw-normal lh-1">
-					Deposite Money
-				</h2>
+				<h2 class="featurette-heading fw-normal lh-1">Deposite Money</h2>
 				<p class="lead">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 					imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span
@@ -279,11 +275,12 @@
 						sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at
 						libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae
 						dui eget tellus gravida venenatis. Integer fringilla congue eros
-						non fermentum. Sed dapibus pulvinar nibh tempor porta.
-				</p><button onclick="myFunction()" id="myBtn">Read more</button>
-				<a class="btn btn-primary" href="#" role="button">Deposite Money<svg xmlns="http://www.w3.org/2000/svg" width="16"
-						height="16" fill="currentColor" class="bi bi-arrow-right"
-						viewBox="0 0 16 16">
+						non fermentum. Sed dapibus pulvinar nibh tempor porta. 
+				</p>
+				<button onclick="myFunction()" id="myBtn">Read more</button>
+				<a class="btn btn-primary" href="depositeMoney.jsp" role="button">Deposite Money<svg
+						xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+						fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
 							d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
           </svg>
@@ -325,21 +322,21 @@
 			ride : 'carousel'
 		});
 
-		  function myFunction() {
-		    var dots = document.getElementById("dots");
-		    var moreText = document.getElementById("more");
-		    var btnText = document.getElementById("myBtn");
+		function myFunction() {
+			var dots = document.getElementById("dots");
+			var moreText = document.getElementById("more");
+			var btnText = document.getElementById("myBtn");
 
-		    if (dots.style.display === "none") {
-		      dots.style.display = "inline";
-		      btnText.innerHTML = "Read more"; 
-		      moreText.style.display = "none";
-		    } else {
-		      dots.style.display = "none";
-		      btnText.innerHTML = "Read less"; 
-		      moreText.style.display = "inline";
-		    }
-		  }
+			if (dots.style.display === "none") {
+				dots.style.display = "inline";
+				btnText.innerHTML = "Read more";
+				moreText.style.display = "none";
+			} else {
+				dots.style.display = "none";
+				btnText.innerHTML = "Read less";
+				moreText.style.display = "inline";
+			}
+		}
 	</script>
 </body>
 

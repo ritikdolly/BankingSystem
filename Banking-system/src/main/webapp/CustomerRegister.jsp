@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CustomerCreate</title>
 </head>
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-		crossorigin="anonymous">
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+	integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 
-<style>
+	<style>
 * {
 	margin: 0;
 	padding: 0;
@@ -235,7 +235,6 @@ footer .social-media p i {
 	margin-right: 30px;
 }
 </style>
-
 <body>
 	<%
 	String regi = (String) session.getAttribute("notRegister");
@@ -313,15 +312,15 @@ footer .social-media p i {
 
 			<h1>Bank Application Form</h1>
 		</div>
-		<form action="staffRegistor" method="post">
+		<form action="CustomerRegistor" method="post">
 			<div class="infoBoxes">
 				<h2>Personal Details</h2>
 				<div id="info">
 					<label for="f-name">Name</label>
 					<div class="detail name_style">
-						<input type="text" id="f-name" required name="fname"
+						<input type="text" id="f-name" required name="firstname"
 							placeholder="Enter First Name" /> <input type="text" id="l-name"
-							required name="lname" placeholder="Enter Last Name" />
+							required name="lastname" placeholder="Enter Last Name" />
 					</div>
 				</div>
 				<div id="info">
@@ -358,7 +357,7 @@ footer .social-media p i {
 							:<input type="text" required name="state"
 							placeholder="Enter State" />
 						</span> <span>Pin Code :<input type="number" required
-							id="pin-code" name="pincode" placeholder="Enter Pin Code" /></span>
+							id="pin-code" name="pinCode" placeholder="Enter Pin Code" /></span>
 					</div>
 					<br>
 				</div>
@@ -396,7 +395,7 @@ footer .social-media p i {
 				</div>
 				<div id="info">
 					<label for="accountType" class="form-label">Account Type:</label> <select
-						id="accountType" name="accountType" class="form-select" required>
+						id="accounttype" name="accounttype" class="form-select" required>
 						<option value="savings">Savings</option>
 						<option value="current">Current</option>
 						<option value="fixedDeposit">Fixed Deposit</option>

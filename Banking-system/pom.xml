@@ -43,6 +43,11 @@
 
 
 
+  	<dependency>
+  		<groupId>com.basic.servlet</groupId>
+  		<artifactId>LearnServ</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
   <build>
     <finalName>Banking-system</finalName>
