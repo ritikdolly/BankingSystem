@@ -115,9 +115,15 @@ if(session.getAttribute("mainUser") == null)
                 Other
               </a>
               <ul class="dropdown-menu custom-dropdown">
+<<<<<<< HEAD
                 <li><a class="dropdown-item" href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}">Staff Information</a></li>
                 <li><a class="dropdown-item" href="#">Customer Information</a></li>
                 <li><a class="dropdown-item" href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}">Staff Creation</a></li>
+=======
+                <li><a class="dropdown-item" href="<%= request.getContextPath()%>/staffModify?action=all">Staff Information</a></li>
+                <li><a class="dropdown-item" href="<%=request.getContextPath()%>/customerModify?action=all">Customer Information</a></li>
+                <li><a class="dropdown-item" href="staffRegisterIndex.jsp">Staff Creation</a></li>
+>>>>>>> branch 'Sahdev' of https://github.com/ritikdolly/BankingSystem.git
               </ul>
             </li>
             <li class="nav-item">
@@ -177,7 +183,7 @@ if(session.getAttribute("mainUser") == null)
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Customers Informations</h5>
           <p class="fs-4">Some representative placeholder content for the third slide.</p>
-          <a class="btn btn-primary" href="#" role="button">Customer Detail</a>
+          <a class="btn btn-primary" href="<%=request.getContextPath()%>/customerModify?action=all" role="button">Customer Details</a>
         </div>
       </div>
     </div>
@@ -234,7 +240,7 @@ if(session.getAttribute("mainUser") == null)
             blow your mind.</span></h2>
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
         </p>
-        <a class="btn btn-primary" href="#" role="button">Customer Detail <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <a class="btn btn-primary" href="<%=request.getContextPath()%>/customerModify?action=all" role="button">Customer Detail <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
           </svg></a>
       </div>
