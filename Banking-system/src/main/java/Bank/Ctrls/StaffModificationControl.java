@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -32,6 +34,9 @@ public class StaffModificationControl extends HttpServlet {
         String action = request.getParameter("action"); // Retrieve action from query parameter
         System.out.println("Requested action: " + action);
 
+        // set http Session
+        HttpSession session=  request.getSession();
+        
         if (action == null || action.isEmpty()) {
             action = "all"; // Default action if no action is provided
         }
@@ -41,6 +46,7 @@ public class StaffModificationControl extends HttpServlet {
         		System.out.println("in staff reg ctrl main user= "+mainUser);
         		//set main userId
                 request.setAttribute("mainUser", mainUser);
+                session.setAttribute("mainUser", mainUser);
         		request.getRequestDispatcher("ManagerAccess.jsp").forward(request, response);
         		break;
             case "moreDetail":
@@ -73,6 +79,7 @@ public class StaffModificationControl extends HttpServlet {
         		System.out.println("in staff reg ctrl main user= "+mainUser1);
         		//set main userId
                 request.setAttribute("mainUser", mainUser1);
+                session.setAttribute("mainUser", mainUser1);
         		request.getRequestDispatcher("staffRegisterIndex.jsp").forward(request, response);
             	break;
             default:
@@ -93,6 +100,9 @@ public class StaffModificationControl extends HttpServlet {
 			request.setAttribute("mainUserInformation", info);
 			//set main userId
             request.setAttribute("mainUser", mainUser);
+         // set http Session
+            HttpSession session=  request.getSession();
+            session.setAttribute("mainUser", mainUser);
 			request.getRequestDispatcher("UserInfo.jsp").forward(request, response);
 		}
 		else {
@@ -111,6 +121,10 @@ public class StaffModificationControl extends HttpServlet {
     	String mainUser=request.getParameter("mainUser");
     	System.out.println("EmpID: "+ empId);
     	AddStaff staff = dao.editStaffRetrieve(empId);
+    	
+    	// set http Session
+        HttpSession session=  request.getSession();
+        session.setAttribute("mainUser", mainUser);
     	if(staff != null) {
         	request.setAttribute("fname", staff.getFname());
         	request.setAttribute("lname", staff.getLname());
@@ -139,7 +153,7 @@ public class StaffModificationControl extends HttpServlet {
     		
     	}else {
     		System.out.println("Error in Staff ModifyControlls");
-//    		request.getRequestDispatcher("Staff-list.jsp").forward(request, response);
+    		request.getRequestDispatcher("Staff-list.jsp").forward(request, response);
     	}
 	}
     
@@ -168,6 +182,9 @@ public class StaffModificationControl extends HttpServlet {
         String refEmail2 = request.getParameter("refemail2");
 
         AddStaff staff = new AddStaff(id, fname, lname, dob, fatherName, address, city, phoneNumber, emergencyNo, email, position, workschedule, refName1, relation1, refPhNo1, refEmail1, refName2, relation2, refPhNo2, refEmail2);        
+     // set http Session
+        HttpSession session=  request.getSession();
+        session.setAttribute("mainUser", mainUser);
         if (dao.updateStaff(staff)) {
             System.out.println("Successfully Updated....!");
             response.sendRedirect(request.getContextPath() + "/staffModify?action=all&mainUser="+mainUser);
@@ -185,6 +202,9 @@ public class StaffModificationControl extends HttpServlet {
         AddStaff addstaff = dao.moreAboutStaff(empId);
       //set main userId
         request.setAttribute("mainUser", mainUser);
+     // set http Session
+        HttpSession session=  request.getSession();
+        session.setAttribute("mainUser", mainUser);
         if (empId != null && !empId.isEmpty()) {
             if (addstaff != null) {
 	        	request.setAttribute("empId", empId);
@@ -247,6 +267,9 @@ public class StaffModificationControl extends HttpServlet {
     private void deleteStaff(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String empId = request.getParameter("id");
         String mainUser=request.getParameter("mainUser");
+     // set http Session
+        HttpSession session=  request.getSession();
+        session.setAttribute("mainUser", mainUser);
         if (empId != null && dao.deleteStaff(empId)) {
             System.out.println("Deleted Successfully...!");
         } else {
@@ -261,7 +284,9 @@ public class StaffModificationControl extends HttpServlet {
         	String mainUser=request.getParameter("mainUser");
             // Fetch staff records
             List<AddStaff> listStaff = dao.selectAllEmp();
-            
+         // set http Session
+            HttpSession session=  request.getSession();
+            session.setAttribute("mainUser", mainUser);
             if (listStaff == null || listStaff.isEmpty()) {
                 System.out.println("No staff found or list is null.");
                 response.sendRedirect(request.getContextPath() + "/errorPage.jsp");  // Redirect to an error page

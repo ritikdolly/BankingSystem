@@ -65,6 +65,16 @@
 </head>
 
 <body>
+<% 
+response.setHeader("cache-Control", "no-cache , no-store,must-revalidate");//http 1.1
+
+response.setHeader("pragma", "no-cache");//http 1.0
+
+response.setHeader("Expires", "0"); // proxies http
+	
+if(session.getAttribute("mainUser") == null)
+	response.sendRedirect("withoutLogin.jsp");
+%>
 	<nav class="navbar navbar-dark bg-primary fixed-top">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index.jsp"> <svg

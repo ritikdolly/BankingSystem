@@ -32,6 +32,8 @@ public class BankingControls extends HttpServlet {
 		//Create object of AddDetail class we use set a data on it...
         	AddInformation addCust = new AddInformation();
     		BankingDao dao = new BankingDao();
+    		
+    		
     		//System.out.println("in banking Control File....!");// comment....
     		
     		addCust.setClientUserId(request.getParameter("userId"));
@@ -52,18 +54,21 @@ public class BankingControls extends HttpServlet {
 				case "admin": 
 					System.out.println(type);
 					request.setAttribute("mainUser", addCust.getServerUserId());
+					session.setAttribute("mainUser", addCust.getServerUserId());
 					request.getRequestDispatcher("ManagerAccess.jsp").forward(request, response);
 					forwardToLogin = false; 
 					break;
 				case "staff":
 					System.out.println(type);
 					request.setAttribute("mainUser", addCust.getServerUserId());
+		               session.setAttribute("mainUser", addCust.getServerUserId());
 					request.getRequestDispatcher("StaffAccess.jsp").forward(request, response);
 					forwardToLogin = false; 
 					break;
 				case "customer":
 					System.out.println(type);
 					request.setAttribute("mainUser", addCust.getServerUserId());
+					session.setAttribute("mainUser", addCust.getServerUserId());
 					request.getRequestDispatcher("CustomerAcess.jsp").forward(request, response);
 					forwardToLogin = false; 
 					break;
@@ -83,6 +88,7 @@ public class BankingControls extends HttpServlet {
         
            if(forwardToLogin ) {
         	   request.setAttribute("msg", msg);
+        	
            		request.getRequestDispatcher("loginPage.jsp").forward(request, response);
            }
 
