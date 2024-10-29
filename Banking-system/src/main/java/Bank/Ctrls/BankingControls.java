@@ -69,7 +69,7 @@ public class BankingControls extends HttpServlet {
 					System.out.println(type);
 					request.setAttribute("mainUser", addCust.getServerUserId());
 					session.setAttribute("mainUser", addCust.getServerUserId());
-					request.getRequestDispatcher("CustomerAcess.jsp").forward(request, response);
+					request.getRequestDispatcher("customerAccess.jsp").forward(request, response);
 					forwardToLogin = false; 
 					break;
 				default:

@@ -440,43 +440,104 @@ public class StaffRegisterDao {
 				case "admin":
 					query2="SELECT * FROM admins where userId= ? ;";
 					tableName="admins";
+					//
+					System.out.println("in staff reg Dao TableName= "+tableName);
+					
+					System.out.println("in staff reg dao mainUser Detail line -3");
+					st=con.prepareStatement(query2);
+					st.setString(1, mainUser);
+					rs= st.executeQuery();
+					System.out.println("in staff reg dao mainUser Detail line -4");
+					while(rs.next()) {
+						String EmpId= rs.getString("UserId");
+						String fname= rs.getString("fname");
+						String lname= rs.getString("lname");
+						String dob= rs.getString("dob");
+						String fatherName= rs.getString("fatherName");
+						String address= rs.getString("address");
+						String city= rs.getString("city");
+						String district= rs.getString("district");
+						String state= rs.getString("state");
+						String pincode= rs.getString("pincode");
+						String phoneNo= rs.getString("phoneNo");
+						String email= rs.getString("email");
+						String emergencyNO= rs.getString("emergencyNO");
+						String aadharNo= rs.getString("aadharNo");
+						String panNO= rs.getString("panNO");
+						String accountNo=rs.getString("accountNo");
+						info=new UserInfoModels(EmpId,fname,lname,dob,fatherName,address,city,district,state,pincode,phoneNo,email,emergencyNO,aadharNo,panNO,accountNo);
+						System.out.println("in staff reg dao mainUser Detail line -5");	
+					}
+					//
 					break;
 				case "staff":
-					query2="SELECT * FROM staff where userId= ? ;";
+					query2="SELECT * FROM staff where EmpId= ? ;";
 					tableName="staff";
+					//
+					System.out.println("in staff reg Dao TableName= "+tableName);
+					
+					System.out.println("in staff reg dao mainUser Detail line -3");
+					st=con.prepareStatement(query2);
+					st.setString(1, mainUser);
+					rs= st.executeQuery();
+					System.out.println("in staff reg dao mainUser Detail line -4");
+					while(rs.next()) {
+						String EmpId= rs.getString("EmpId");
+						String fname= rs.getString("fname");
+						String lname= rs.getString("lname");
+						String dob= rs.getString("dob");
+						String fatherName= rs.getString("fatherName");
+						String address= rs.getString("address");
+						String city= rs.getString("city");
+						String district= rs.getString("district");
+						String state= rs.getString("state");
+						String pincode= rs.getString("pincode");
+						String phoneNo= rs.getString("phoneNo");
+						String email= rs.getString("email");
+						String emergencyNO= rs.getString("emergencyNO");
+						String aadharNo= rs.getString("aadharNo");
+						String panNO= rs.getString("panNO");
+						String accountNo=rs.getString("accountNo");
+						info=new UserInfoModels(EmpId,fname,lname,dob,fatherName,address,city,district,state,pincode,phoneNo,email,emergencyNO,aadharNo,panNO,accountNo);
+						System.out.println("in staff reg dao mainUser Detail line -5");	
+					}
+					//
 					break;
 				case "customer":
-					query2="SELECT * FROM customer where userId= ? ;";
+					query2="SELECT * FROM customer where CustId= ? ;";
 					tableName="customer";
+					//
+					System.out.println("in staff reg Dao TableName= "+tableName);
+					
+					System.out.println("in staff reg dao mainUser Detail line -3");
+					st=con.prepareStatement(query2);
+					st.setString(1, mainUser);
+					rs= st.executeQuery();
+					System.out.println("in staff reg dao mainUser Detail line -4");
+					while(rs.next()) {						
+						String EmpId= rs.getString("CustId");
+						String fname= rs.getString("firstname");
+						String lname= rs.getString("lastname");
+						String dob= rs.getString("Dob");
+						String fatherName= rs.getString("fathername");
+						String address= rs.getString("address");
+						String city= rs.getString("city");
+						String district= rs.getString("district");
+						String state= rs.getString("state");
+						String pincode= rs.getString("pincode");
+						String phoneNo= rs.getString("phonenumber");
+						String email= rs.getString("email");
+						String emergencyNO= rs.getString("phonenum1");
+						String aadharNo= rs.getString("aadhaarno");
+						String panNO= rs.getString("panno");
+						String accountNo=rs.getString("accountNo");
+						info=new UserInfoModels(EmpId,fname,lname,dob,fatherName,address,city,district,state,pincode,phoneNo,email,emergencyNO,aadharNo,panNO,accountNo);
+						System.out.println("in staff reg dao mainUser Detail line -5");	
+					}
+					//
 					break;
 				}
-				System.out.println("in staff reg Dao TableName= "+tableName);
-							
-				System.out.println("in staff reg dao mainUser Detail line -3");
-				st=con.prepareStatement(query2);
-				st.setString(1, mainUser);
-				rs= st.executeQuery();
-				System.out.println("in staff reg dao mainUser Detail line -4");
-				while(rs.next()) {
-					String EmpId= rs.getString("UserId");
-					String fname= rs.getString("fname");
-					String lname= rs.getString("lname");
-					String dob= rs.getString("dob");
-					String fatherName= rs.getString("fatherName");
-					String address= rs.getString("address");
-					String city= rs.getString("city");
-					String district= rs.getString("district");
-					String state= rs.getString("state");
-					String pincode= rs.getString("pincode");
-					String phoneNo= rs.getString("phoneNo");
-					String email= rs.getString("email");
-					String emergencyNO= rs.getString("emergencyNO");
-					String aadharNo= rs.getString("aadharNo");
-					String panNO= rs.getString("panNO");
-					String accountNo=rs.getString("accountNo");
-					info=new UserInfoModels(EmpId,fname,lname,dob,fatherName,address,city,district,state,pincode,phoneNo,email,emergencyNO,aadharNo,panNO,accountNo);
-					System.out.println("in staff reg dao mainUser Detail line -5");	
-				}
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -495,6 +556,7 @@ public class StaffRegisterDao {
 			}
 			return info;
 		}
+		
 
 	}
 
