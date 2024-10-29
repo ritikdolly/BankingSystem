@@ -9,12 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 
 import Bank.Model.UserInfoModels;
-=======
->>>>>>> branch 'Sahdev' of https://github.com/ritikdolly/BankingSystem.git
 import Bank.Model.staff.AddStaff;
 
 public class StaffRegisterDao {
