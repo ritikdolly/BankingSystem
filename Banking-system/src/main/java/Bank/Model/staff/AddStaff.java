@@ -143,6 +143,11 @@ public class AddStaff {
         this.refemail2 = refEmail2;
     }
 
+	
+
+
+
+
 	public String getFname() {
 		return fname;
 	}
