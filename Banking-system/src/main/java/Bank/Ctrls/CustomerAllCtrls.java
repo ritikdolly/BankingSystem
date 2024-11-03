@@ -44,6 +44,17 @@ public class CustomerAllCtrls extends HttpServlet {
 			System.out.println("in Customr Ctrls tranfer line  -2");
 			doTransfer(request,response,session);			
 			break;
+		case "checkAmount":
+			System.out.println("in Customr Ctrls tranfer line  -2");
+			checkBalance(request,response,session);			
+			break;
+		case "startWithdraw":
+			String CustId2= request.getParameter("CustId");
+			//set main userId
+			request.setAttribute("mainUser", CustId2);
+            session.setAttribute("mainUser", CustId2);
+			request.getRequestDispatcher("withdrawMoney.jsp").forward(request, response);		
+			break;
 		default:
 			
 			break;
@@ -51,9 +62,36 @@ public class CustomerAllCtrls extends HttpServlet {
 	}
 
 	
+	private void checkBalance(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
+		String CustId= request.getParameter("CustId");
+		CustomerModel model = new CustomerModel(); 
+		model.setSenderCustId(CustId);
+		if(dao.checkBalance(model) != null) {
+			request.setAttribute("fName", model.getSenderFName());
+			request.setAttribute("lName", model.getSenderLName());
+			request.setAttribute("AccNo", model.getSenderAccNo());
+			request.setAttribute("balance", model.getSenderBalance());
+			request.getRequestDispatcher("checkBalance.jsp").forward(request, response);
+		}else {
+			System.out.println("Some Wrong in cust All ctrl File.");
+		}
+		
+		
+	}
+
+//for check customer balance
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String CustId= request.getParameter("mainUser");
+		String pwd= request.getParameter("pwd");
+		int amount=Integer.parseInt(request.getParameter("amount"));
+		
+		System.out.println("in customer Ctrl post custID: "+CustId);
+		System.out.println("in customer Ctrl post pwd: "+pwd);
+		System.out.println("in customer Ctrl post Amount: "+amount);
+		String msg =dao.withdrawMoney(CustId, pwd, amount);
+		System.out.println(msg);
+		request.setAttribute("msg", msg);
+		request.getRequestDispatcher("Successfull.jsp").forward(request, response);
 	}
 
 	
@@ -62,7 +100,7 @@ public class CustomerAllCtrls extends HttpServlet {
 		CustomerModel model = new CustomerModel(); 
 		model.setSenderCustId(CustId);
 		model.setReceiverAccNo(request.getParameter("receiverAccount"));
-		model.setReceiverName(request.getParameter("receiverName"));
+		model.setReceiverFName(request.getParameter("receiverName"));
 		model.setSenderBalance(Integer.parseInt(request.getParameter("amount")));
 		System.out.println("in Customr Ctrls tranfer line  -2");
 		String msg = dao.getTransaction(model);

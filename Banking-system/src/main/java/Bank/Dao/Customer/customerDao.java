@@ -44,7 +44,7 @@ public class customerDao {
 			System.out.println("in Customr dao tranfer line -2");
 			st.setString(1, model.getSenderCustId());
 			rs = st.executeQuery();
-			while (rs.next()) {
+			if (rs.next()) {
 				amount = rs.getInt("balance");// getting amount from client 1
 			}
 			System.out.println(amount);
@@ -59,7 +59,7 @@ public class customerDao {
 					st = con.prepareStatement(reveiverQuery);
 					st.setInt(1, model.getSenderBalance());
 					st.setString(2, model.getReceiverAccNo());
-					st.setString(3, model.getReceiverName());
+					st.setString(3, model.getReceiverFName());
 					int val = st.executeUpdate();
 					if (val == 1) {
 						msg = "Congratulation! Transaction is successfully done";
@@ -72,7 +72,6 @@ public class customerDao {
 						int n = st.executeUpdate();
 						msg = "Oops! there is some issues in serve";
 						System.out.println(msg + " !... receiver fold");
-						con.commit();
 					}
 				} else {
 					msg = "Oops! there is some issues in serve";
@@ -104,4 +103,111 @@ public class customerDao {
 		}
 		return msg;
 	}
+	
+	
+	public String withdrawMoney(String userID , String pwd, int amount) {
+		Connection con= null;
+		PreparedStatement st =null;
+		ResultSet rs= null;
+		String getDataQuery="select * from login where UserId=? AND password= ?;";	// check whether information is right or wrong
+		String getCustomerBalanceQuery="Select balance from customer where CustId= ?;";
+		String getWithdrawQuery="UPDATE customer SET balance = balance - ?  WHERE CustId= ? ; "; // Withdraw money from customer table
+		String msg=null;
+		try {
+			con=customerDao.getConnection();
+			con.setAutoCommit(false);
+			st= con.prepareStatement(getDataQuery);
+			st.setString(1, userID);
+			st.setString(2, pwd);
+			rs=st.executeQuery();
+			
+			if (rs.next()) {// 
+				st=con.prepareStatement(getCustomerBalanceQuery);
+				st.setString(1, userID);
+				rs= st.executeQuery();
+				if (rs.next()) {
+					int getBal= rs.getInt("balance");
+					if( (getBal- amount) > 500) {
+						st=con.prepareStatement(getWithdrawQuery);
+						st.setInt(1, amount);
+						st.setString(2, userID);
+						int val=st.executeUpdate();
+						if(val == 1) {
+							msg = "Congratulation! Transaction is successfully done";
+							con.commit();
+						}else {
+							msg="Server Issues";
+							con.rollback();
+							con.commit();
+						}
+					}else {
+						msg="Not A Sufficient Amount to Make Withdraw.";
+						con.rollback();
+						con.commit();
+					}
+				}
+			}else {
+				msg="Oops!Password is Wrong.";
+				con.rollback();
+				con.commit();
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(con != null)
+					con.close();
+				if(st != null)
+					st.close();
+				if(rs != null)
+					rs.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return msg;
+	}
+	
+	public CustomerModel checkBalance(CustomerModel model) {
+		Connection con =null;
+		PreparedStatement st= null;
+		ResultSet rs= null;
+		String amountCheckQuery="Select firstname,lastname,accountNo,balance from customer where CustId= ?;";
+		String msg=null;
+		try {
+			con = customerDao.getConnection();
+			con.setAutoCommit(false);
+			st=con.prepareStatement(amountCheckQuery);
+			st.setString(1, model.getSenderCustId());
+			rs=st.executeQuery();
+			if(rs.next()) {
+				model.setSenderFName(rs.getString("firstname"));
+				model.setSenderLName(rs.getString("lastname"));
+				model.setSenderAccNo(rs.getString("accountNo"));
+				model.setSenderBalance(rs.getInt("balance"));
+			}else {
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(con != null)
+					con.close();
+				if(st != null)
+					st.close();
+				if(rs !=null)
+					rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return model;
+	}
+	
 }

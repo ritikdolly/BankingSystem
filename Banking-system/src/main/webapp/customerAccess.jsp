@@ -166,7 +166,7 @@ if(session.getAttribute("mainUser") == null)
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Check Your Balance</h5>
           <p class="fs-4">Some representative placeholder content for the second slide.</p>
-          <a class="btn btn-primary" href="#"  role="button">Check Balance</a>
+          <a class="btn btn-primary" href="customerCtrls?action=checkAmount&CustId=${mainUser}"  role="button">Check Balance</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -176,7 +176,7 @@ if(session.getAttribute("mainUser") == null)
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Withdraw Money</h5>
           <p class="fs-4">Some representative placeholder content for the third slide.</p>
-          <a class="btn btn-primary" href="#" role="button">Withdraw Money</a>
+          <a class="btn btn-primary" href="customerCtrls?action=startWithdraw&CustId=${mainUser}" role="button">Withdraw Money</a>
         </div>
       </div>
     </div>
