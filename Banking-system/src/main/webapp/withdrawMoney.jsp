@@ -195,7 +195,7 @@ if(session.getAttribute("mainUser") == null)
         <div class="title"><p class="text-center"><p1 class="fs-4">Transfer Money</p1></p></div>
         <!-- Content here -->
        
-<form action="customerCtrls?mainUser=${mainUser}" method="post">
+<form action="customerCtrls?action=dowithdraw&mainUser=${mainUser}" method="post">
 	<input type="text" name="amount" placeholder="Enter your amount"><br>
 	<input type="password" name="pwd" placeholder="enter your password"><br>
 	<input type="submit" value="submit">

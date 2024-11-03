@@ -45,7 +45,7 @@ public class CustomerAllCtrls extends HttpServlet {
 			doTransfer(request,response,session);			
 			break;
 		case "checkAmount":
-			System.out.println("in Customr Ctrls tranfer line  -2");
+			System.out.println("in Customr Ctrls check Balance line  -2");
 			checkBalance(request,response,session);			
 			break;
 		case "startWithdraw":
@@ -60,9 +60,32 @@ public class CustomerAllCtrls extends HttpServlet {
 			break;
 		}
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		
+		HttpSession session= request.getSession();
+		
+		switch (action) {
+		case "dotransfer":
+			System.out.println("in Customr Ctrls tranfer line  -2");
+			doTransfer(request,response,session);			
+			break;
+		case "dowithdraw":
+			dowithdraw(request,response,session);
+			break;
+			default:
+					
+					break;
+		}	
+		
+		
+	}
 
 	
 	private void checkBalance(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
+		
+		
 		String CustId= request.getParameter("CustId");
 		CustomerModel model = new CustomerModel(); 
 		model.setSenderCustId(CustId);
@@ -80,7 +103,10 @@ public class CustomerAllCtrls extends HttpServlet {
 	}
 
 //for check customer balance
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+
+	
+	private void dowithdraw(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
 		String CustId= request.getParameter("mainUser");
 		String pwd= request.getParameter("pwd");
 		int amount=Integer.parseInt(request.getParameter("amount"));
@@ -90,11 +116,14 @@ public class CustomerAllCtrls extends HttpServlet {
 		System.out.println("in customer Ctrl post Amount: "+amount);
 		String msg =dao.withdrawMoney(CustId, pwd, amount);
 		System.out.println(msg);
+		if(msg != null) {
 		request.setAttribute("msg", msg);
 		request.getRequestDispatcher("Successfull.jsp").forward(request, response);
 	}
-
 	
+}
+
+
 	public void doTransfer(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws ServletException, IOException {
 		String CustId= request.getParameter("CustId");
 		CustomerModel model = new CustomerModel(); 
@@ -112,4 +141,7 @@ public class CustomerAllCtrls extends HttpServlet {
 //        request.setAttribute("mainUser", CustId1);
 //        session.setAttribute("mainUser", CustId1);
 	}
-}
+	
+	
+	}
+
