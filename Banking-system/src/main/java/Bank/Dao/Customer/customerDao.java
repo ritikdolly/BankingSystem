@@ -18,21 +18,24 @@ public class customerDao {
 		return DriverManager.getConnection(url, user, pwd);
 	}
 
-	public String getTransaction(CustomerModel model) {
+	public boolean getTransaction(CustomerModel model) {
 		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		String senderGetBalanceQuery = "Select balance from customer where CustId= ?";// to get balance from customer 1
+		boolean flag = false;
+		String senderGetBalanceQuery = "Select balance,accountNo,firstname from customer where CustId= ;";// to get balance from customer 1
 		String senderQuery = "UPDATE customer SET balance = balance - ?  WHERE CustId = ?;";// query for decrease
 		System.out.println("in Customr dao tranfer line -1");
 		String reveiverQuery = "UPDATE customer SET balance = balance + ?  WHERE accountNo = ? and firstname= ? ;";// to for receiver 
 		String senderMoneyBack= "UPDATE customer SET balance = balance + ?  WHERE CustId= ? ;";
 		
-//		System.out.println(model.getSenderCustId());
-//		System.out.println(model.getReceiverAccNo());
-//		System.out.println(model.getReceiverName());
-//		System.out.println();model.getSenderBalance();
-//		System.out.println(model.getReceiverBalance());
+		System.out.println(model.getSenderCustId());
+		System.out.println(model.getSenderFName());
+		System.out.println(model.getSenderAccNo());
+		System.out.println(model.getReceiverAccNo());
+		System.out.println(model.getReceiverFName());
+		System.out.println();model.getSenderBalance();
+		System.out.println(model.getReceiverBalance());
 		
 		
 		String msg = null;
@@ -46,8 +49,15 @@ public class customerDao {
 			rs = st.executeQuery();
 			if (rs.next()) {
 				amount = rs.getInt("balance");// getting amount from client 1
+				model.setSenderAccNo(rs.getString("accountNo"));
+				model.setSenderFName(rs.getString("firstname"));
 			}
 			System.out.println(amount);
+			if(model.getSenderAccNo() == model.getReceiverAccNo() && model.getSenderFName() == model.getSenderFName()) {
+				msg = "Oops! Its Your Account Number!!";
+			}
+			else {
+				
 			if ((amount - model.getSenderBalance()) > 500) {
 
 				st = con.prepareStatement(senderQuery);
@@ -64,6 +74,7 @@ public class customerDao {
 					if (val == 1) {
 						msg = "Congratulation! Transaction is successfully done";
 						System.out.println(msg);
+						flag=true;
 						con.commit();
 					} else {
 						st = con.prepareStatement(senderMoneyBack);
@@ -83,7 +94,7 @@ public class customerDao {
 				System.out.println(msg);
 				con.commit();
 			}
-
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			msg = "Oops ! there is some exception arise";
@@ -101,14 +112,15 @@ public class customerDao {
 				e.printStackTrace();
 			}
 		}
-		return msg;
+		return flag;
 	}
 	
 	
-	public String withdrawMoney(String userID , String pwd, int amount) {
+	public boolean withdrawMoney(String userID , String pwd, int amount) {
 		Connection con= null;
 		PreparedStatement st =null;
 		ResultSet rs= null;
+		boolean flag= false;
 		String getDataQuery="select * from login where UserId=? AND password= ?;";	// check whether information is right or wrong
 		String getCustomerBalanceQuery="Select balance from customer where CustId= ?;";
 		String getWithdrawQuery="UPDATE customer SET balance = balance - ?  WHERE CustId= ? ; "; // Withdraw money from customer table
@@ -134,7 +146,7 @@ public class customerDao {
 						int val=st.executeUpdate();
 						if(val == 1) {
 							msg = "Congratulation! Transaction is successfully done";
-							con.commit();
+							flag=true;
 						}else {
 							msg="Server Issues";
 							con.rollback();
@@ -168,7 +180,7 @@ public class customerDao {
 			}
 		}
 		
-		return msg;
+		return flag;
 	}
 	
 	public CustomerModel checkBalance(CustomerModel model) {

@@ -13,12 +13,7 @@
 
 <style>
      /*     ----nav bar----    */
-   /* body{
-      background-image: url("cash.webp");
-      background-repeat: no-repeat;
-    */
-
-    .navbar {
+   .navbar {
       padding: 5px 50px;
     }
 
@@ -196,9 +191,19 @@ if(session.getAttribute("mainUser") == null)
         <!-- Content here -->
        
 <form action="customerCtrls?action=dowithdraw&mainUser=${mainUser}" method="post">
-	<input type="text" name="amount" placeholder="Enter your amount"><br>
-	<input type="password" name="pwd" placeholder="enter your password"><br>
-	<input type="submit" value="submit">
+   
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter your Amount</label>
+        <input type="text" class="form-control" name="amount" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter your Password</label>
+        <input type="password" class="form-control" name="pwd" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div><br>
+      <div class="d-grid gap-2 col-6 mx-auto">
+      <input type="submit" class="btn btn-primary" value="submit"> 
+        
+        </div>
 </form>
         
 

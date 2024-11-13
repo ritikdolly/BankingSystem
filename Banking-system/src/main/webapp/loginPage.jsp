@@ -51,13 +51,7 @@
         <span style="padding-left: 7px;" class="fs-4 text-light">RGSDSA</span>
       </a>
 
-      <ul class="nav nav-pills ">
-        <li class="nav-item "><a href="#" class="nav-link text-secondary active" aria-current="page">Home</a></li>
-        <li class="nav-item "><a href="#" class="nav-link text-light">Features</a></li>
-        <li class="nav-item "><a href="#" class="nav-link text-light">Pricing</a></li>
-        <li class="nav-item "><a href="#" class="nav-link text-light">FAQs</a></li>
-        <li class="nav-item "><a href="#" class="nav-link text-light">About</a></li>
-      </ul>
+      
     </header>
   </div>
   <!-- container-->

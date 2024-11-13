@@ -162,7 +162,7 @@ if(session.getAttribute("mainUser") == null)
           height="700"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Staff Creation</h5>
-          <p class="fs-4">Some representative placeholder content for the first slide.</p>
+          <p class="fs-4">Here you can create Employees with fill up the form</p>
           <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}"  role="button">Employee Creation</a>
         </div>
       </div>
@@ -172,7 +172,7 @@ if(session.getAttribute("mainUser") == null)
           height="700" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Staff Information</h5>
-          <p class="fs-4">Some representative placeholder content for the second slide.</p>
+          <p class="fs-4">Here You can view the personal informations of the Staff</p>
           <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}"  role="button">Employees Informations</a>
         </div>
       </div>
@@ -182,7 +182,7 @@ if(session.getAttribute("mainUser") == null)
           height="700"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Customers Informations</h5>
-          <p class="fs-4">Some representative placeholder content for the third slide.</p>
+          <p class="fs-4">Here you can view the personal information of a customer</p>
           <a class="btn btn-primary" href="<%=request.getContextPath()%>/customerModify?action=all" role="button">Customer Details</a>
         </div>
       </div>
@@ -202,9 +202,9 @@ if(session.getAttribute("mainUser") == null)
      <!-- First Box for Emp Create -->
     <div class="row featurette rounded-bottom-1 bg-body-secondary">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Employees Creation<span class="text-body-secondary">It’ll
-            blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
+        <h2 class="featurette-heading fw-normal lh-1">Employees Creation<span class="text-body-secondary">
+            </span></h2>
+        <p class="lead">Here you can create Employees by fillup the form with the respective informations.
         </p>
         <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=createStaff&mainUser=${mainUser}"  role="button">Employee Creation <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
@@ -219,10 +219,9 @@ if(session.getAttribute("mainUser") == null)
     <!--   Second Box for  Emp Information    -->
     <div class="row featurette rounded-bottom-1 bg-body-secondary">
       <div class="col-md-6 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Employees Information<span class="text-body-secondary">See for
-            yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-          layout would work with some actual real-world content in place.</p>
+        <h2 class="featurette-heading fw-normal lh-1">Employees Information<span class="text-body-secondary">
+            </span></h2>
+        <p class="lead">Here you can view the details of the Employees and you can edit and also delete them. </p>
           <a class="btn btn-primary" href="<%= request.getContextPath()%>/staffModify?action=all&mainUser=${mainUser}"  role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
           </svg> Employees Details</a>
@@ -236,9 +235,9 @@ if(session.getAttribute("mainUser") == null)
     <!--   Third Box for customer Details...-->
     <div class="row featurette rounded-bottom-1 bg-body-secondary">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Customer Details<span class="text-body-secondary">It’ll
-            blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
+        <h2 class="featurette-heading fw-normal lh-1">Customer Details<span class="text-body-secondary">
+            </span></h2>
+        <p class="lead">Here you can view the personal details of customers and you can edit and delete them.
         </p>
         <a class="btn btn-primary" href="<%=request.getContextPath()%>/customerModify?action=all" role="button">Customer Detail <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
@@ -258,7 +257,9 @@ if(session.getAttribute("mainUser") == null)
     <p class="float-end"><a href="#">Back to top<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
     </svg></a></p>
-    <p>© 2024–2025 RGSDSA Bank, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    <p>
+			© 2024–2025 RGSDSA Bank, Inc. · <a href="privacy.html">Privacy</a> · <a href="term.html">Terms</a>
+		</p>
   </footer>
 
   <!--  Script   -->

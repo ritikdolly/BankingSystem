@@ -114,10 +114,8 @@ public class CustomerAllCtrls extends HttpServlet {
 		System.out.println("in customer Ctrl post custID: "+CustId);
 		System.out.println("in customer Ctrl post pwd: "+pwd);
 		System.out.println("in customer Ctrl post Amount: "+amount);
-		String msg =dao.withdrawMoney(CustId, pwd, amount);
-		System.out.println(msg);
-		if(msg != null) {
-		request.setAttribute("msg", msg);
+		if(dao.withdrawMoney(CustId, pwd, amount)) {
+		request.setAttribute("msg", "You Money is withdraw Succesfully !");
 		request.getRequestDispatcher("Successfull.jsp").forward(request, response);
 	}
 	
@@ -132,10 +130,14 @@ public class CustomerAllCtrls extends HttpServlet {
 		model.setReceiverFName(request.getParameter("receiverName"));
 		model.setSenderBalance(Integer.parseInt(request.getParameter("amount")));
 		System.out.println("in Customr Ctrls tranfer line  -2");
-		String msg = dao.getTransaction(model);
-		System.out.println("in ctrls file " + msg);
-		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("Successfull.jsp").forward(request, response);
+		if (dao.getTransaction(model)) {
+			request.setAttribute("msg", "You Transition is done succesfully ! ");
+			request.getRequestDispatcher("Successfull.jsp").forward(request, response);
+		}
+		else {
+			//
+		}
+		
 
 //		//set main userId
 //        request.setAttribute("mainUser", CustId1);

@@ -114,6 +114,7 @@ public class CustomerModificationCtrls extends HttpServlet {
 	        // Redirect with success or error feedback
 	        if (isUpdated) {
 	            request.setAttribute("success", "Customer updated successfully.");
+	            
 	        } else {
 	            request.setAttribute("error", "Failed to update the customer.");
 	        }
@@ -223,11 +224,13 @@ public class CustomerModificationCtrls extends HttpServlet {
 	    if (isDeposited) {
 	        request.setAttribute("success", "Amount deposited successfully.");
 	        System.out.println("deposite succesfully");
+	        request.getRequestDispatcher("Successfull.jsp").forward(request, response);
 	    } else {
 	        request.setAttribute("error", "Failed to deposit the amount.");
+	        response.sendRedirect(request.getContextPath() + "/customerModify?action=list");
 	    }
 
-	    response.sendRedirect(request.getContextPath() + "/customerModify?action=list");
+	    
 	}
 
 

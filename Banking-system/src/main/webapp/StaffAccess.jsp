@@ -149,24 +149,24 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img
-					src="https://media.istockphoto.com/id/1927881398/photo/group-of-business-persons-talking-in-the-office.jpg?s=2048x2048&w=is&k=20&c=R-BpbX_SzMA3IvcNN4L789w8XDx7hum4QESOv538Pw8="
+					src="https://c8.alamy.com/comp/2HBG0C5/close-up-of-businesswoman-and-customer-pointing-and-signing-agreement-for-buying-house-bank-manager-concept-2HBG0C5.jpg"
 					height="700" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
 					<h5 class="fs-1">Customer Creation</h5>
-					<p class="fs-4">Some representative placeholder content for the
-						first slide.</p>
+					<p class="fs-4">Here you can create customer
+						</p>
 					<a class="btn btn-primary" href="CustomerRegister.jsp"
 						role="button">Customer Creation</a>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img
-					src="https://media.istockphoto.com/id/1927881398/photo/group-of-business-persons-talking-in-the-office.jpg?s=2048x2048&w=is&k=20&c=R-BpbX_SzMA3IvcNN4L789w8XDx7hum4QESOv538Pw8="
+					src="https://c8.alamy.com/comp/K9XF16/close-up-of-businesswoman-doing-online-banking-on-computer-in-office-K9XF16.jpg"
 					height="700" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
 					<h5 class="fs-1">Customer Information</h5>
-					<p class="fs-4">Some representative placeholder content for the
-						second slide.</p>
+					<p class="fs-4">Here you can view the details of customer
+						</p>
 					<a class="btn btn-primary"
 						href="<%=request.getContextPath()%>/customerModify?action=all"
 						role="button">Customer Informations</a>
@@ -174,12 +174,11 @@
 			</div>
 			<div class="carousel-item">
 				<img
-					src="https://media.istockphoto.com/id/1134396219/photo/young-woman-talking-to-loan-officer.jpg?s=2048x2048&w=is&k=20&c=ibdYCPJYuNS2bqDJAxkEVXdzVXU_ilU9qyc7zD8TDfs="
+					src="https://springwise.com/wp-content/uploads/2019/05/Qonto_bank_Springwise.jpg"
 					height="700" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
 					<h5 class="fs-1">Deposite Money</h5>
-					<p class="fs-4">Some representative placeholder content for the
-						third slide.</p>
+					<p class="fs-4">Here you can deposite money for the customer</p>
 					<a class="btn btn-primary" href="#" role="button">Deposite</a>
 				</div>
 			</div>
@@ -204,17 +203,10 @@
 				<h2 class="featurette-heading fw-normal lh-1">Customer Creation
 				</h2>
 				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-					imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span
-						id="dots">...</span><span id="more">erisque enim ligula
-						venenatis dolor. Maecenas nisl est, ultrices nec congue eget,
-						auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc
-						sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at
-						libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae
-						dui eget tellus gravida venenatis. Integer fringilla congue eros
-						non fermentum. Sed dapibus pulvinar nibh tempor porta. 
+					Here you can create customer by fill up the form for the customer according
+					to the respective information of the customer.
 				</p>
-				<button onclick="myFunction()" id="myBtn">Read more</button>
+				
 				<a class="btn btn-primary" href="CustomerRegister.jsp" role="button">Create
 					Customer<svg xmlns="http://www.w3.org/2000/svg" width="16"
 						height="16" fill="currentColor" class="bi bi-arrow-right"
@@ -226,7 +218,7 @@
 			</div>
 			<div class="col-md-5">
 				<img
-					src="https://media.gettyimages.com/id/1540766457/photo/young-couple-smiles-as-male-teller-talks-about-savings-options.jpg?s=612x612&w=0&k=20&c=PgHIhSnp0LzoRXhXMwdyMprbwWNDWZ1LOCmdy0t_W7I="
+					src="https://c8.alamy.com/comp/2HBG0C5/close-up-of-businesswoman-and-customer-pointing-and-signing-agreement-for-buying-house-bank-manager-concept-2HBG0C5.jpg"
 					height="400" width="500" alt="emp-create">
 			</div>
 		</div>
@@ -236,17 +228,9 @@
 				<h2 class="featurette-heading fw-normal lh-1">Customer
 					Information</h2>
 				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-					imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span
-						id="dots">...</span><span id="more">erisque enim ligula
-						venenatis dolor. Maecenas nisl est, ultrices nec congue eget,
-						auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc
-						sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at
-						libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae
-						dui eget tellus gravida venenatis. Integer fringilla congue eros
-						non fermentum. Sed dapibus pulvinar nibh tempor porta. 
+					Here you can view the details of a customer and also edit and delete the customer.
 				</p>
-				<button onclick="myFunction()" id="myBtn">Read more</button>
+				
 				<a class="btn btn-primary"
 					href="<%=request.getContextPath()%>/customerModify?action=all"
 					role="button"><svg xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +242,7 @@
 			</div>
 			<div class="col-md-5 order-md-1">
 				<img
-					src="https://media.gettyimages.com/id/2156838176/photo/team-discussing-strategy-in-office-meeting.jpg?s=612x612&w=0&k=20&c=DLCYaHBimz1OPKMFZIjebFxaLnIQkNzgqZ3yhh1eaxw="
+					src="https://c8.alamy.com/comp/K9XF16/close-up-of-businesswoman-doing-online-banking-on-computer-in-office-K9XF16.jpg"
 					height="400" width="500" alt="">
 			</div>
 		</div>
@@ -267,17 +251,9 @@
 			<div class="col-md-7">
 				<h2 class="featurette-heading fw-normal lh-1">Deposite Money</h2>
 				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-					imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span
-						id="dots">...</span><span id="more">erisque enim ligula
-						venenatis dolor. Maecenas nisl est, ultrices nec congue eget,
-						auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc
-						sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at
-						libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae
-						dui eget tellus gravida venenatis. Integer fringilla congue eros
-						non fermentum. Sed dapibus pulvinar nibh tempor porta. 
+					Here you can Deposite money for the customers by enter the customer id and amount.
 				</p>
-				<button onclick="myFunction()" id="myBtn">Read more</button>
+				
 				<a class="btn btn-primary" href="depositeMoney.jsp" role="button">Deposite Money<svg
 						xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 						fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -288,7 +264,7 @@
 			</div>
 			<div class="col-md-5">
 				<img
-					src="https://media.gettyimages.com/id/1282395437/photo/sign-here.jpg?s=612x612&w=0&k=20&c=9Rclnox25e6f-WDM4KE_SxgL1y_28QzHRnwi0maVXB8="
+					src="https://springwise.com/wp-content/uploads/2019/05/Qonto_bank_Springwise.jpg"
 					height="400" width="500" alt="cust-info">
 			</div>
 		</div>
@@ -306,7 +282,7 @@
     </svg></a>
 		</p>
 		<p>
-			© 2024–2025 RGSDSA Bank, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a>
+			© 2024–2025 RGSDSA Bank, Inc. · <a href="privacy.html">Privacy</a> · <a href="term.html">Terms</a>
 		</p>
 	</footer>
 

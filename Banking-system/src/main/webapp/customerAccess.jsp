@@ -31,6 +31,7 @@
       max-width: 250px;
     }
 
+ 
     /* -----dropdown ---*/
     .custom-dropdown {
       background-color: white !important;
@@ -151,31 +152,31 @@ if(session.getAttribute("mainUser") == null)
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://media.istockphoto.com/id/1289220813/photo/woman-receiving-digital-money-using-phone.jpg?s=612x612&w=0&k=20&c=PXwvvuyDFAMSsG4VuW0rWoLgmxRwX7jZ-Glr2GsGxGI="
+          src="https://thumbs.dreamstime.com/z/money-transfer-concept-laptop-woman-using-screen-282406512.jpg"
           height="700"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Send Money</h5>
-          <p class="fs-4">Some representative placeholder content for the first slide.</p>
+          <p class="fs-4">You can send or transfer money with just enter reciver's account number and amount</p>
           <a class="btn btn-primary" href="customerCtrls?action=startTransfer&CustId=${mainUser}"  role="button">Send Money</a>
         </div>
       </div>
       <div class="carousel-item">
         <img
-          src="https://media.istockphoto.com/id/1927881398/photo/group-of-business-persons-talking-in-the-office.jpg?s=2048x2048&w=is&k=20&c=R-BpbX_SzMA3IvcNN4L789w8XDx7hum4QESOv538Pw8="
+          src="https://www.shutterstock.com/image-photo/balance-banking-finance-homepage-concept-260nw-380931865.jpg"
           height="700" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Check Your Balance</h5>
-          <p class="fs-4">Some representative placeholder content for the second slide.</p>
+          <p class="fs-4">You can check your balance just clicking on check balance button</p>
           <a class="btn btn-primary" href="customerCtrls?action=checkAmount&CustId=${mainUser}"  role="button">Check Balance</a>
         </div>
       </div>
       <div class="carousel-item">
         <img
-          src="https://media.istockphoto.com/id/1134396219/photo/young-woman-talking-to-loan-officer.jpg?s=2048x2048&w=is&k=20&c=ibdYCPJYuNS2bqDJAxkEVXdzVXU_ilU9qyc7zD8TDfs="
+          src="https://thumbs.dreamstime.com/b/earn-money-1158841.jpg"
           height="700"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block opacity-75 bg-dark">
           <h5 class="fs-1">Withdraw Money</h5>
-          <p class="fs-4">Some representative placeholder content for the third slide.</p>
+          <p class="fs-4">You can withdraw your money with just entering your password</p>
           <a class="btn btn-primary" href="customerCtrls?action=startWithdraw&CustId=${mainUser}" role="button">Withdraw Money</a>
         </div>
       </div>
@@ -195,9 +196,9 @@ if(session.getAttribute("mainUser") == null)
      <!-- First Box for Emp Create -->
     <div class="row featurette rounded-bottom-1 bg-body-secondary">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Send Money<span class="text-body-secondary">It’ll
-            blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
+        <h2 class="featurette-heading fw-normal lh-1">Send Money<span class="text-body-secondary"> to your friends and family.
+            </span></h2>
+        <p class="lead">Send your money to another account with the  account number and name.
         </p>
         <a class="btn btn-primary" href="customerCtrls?action=startTransfer&CustId=${mainUser}"  role="button">Send Money <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
@@ -205,33 +206,31 @@ if(session.getAttribute("mainUser") == null)
       </div>
       <div class="col-md-5">
         <img
-          src="https://media.gettyimages.com/id/1329317954/photo/asian-chinese-white-collar-worker-having-cheerful-business-discussion-in-boardroom-business.jpg?s=612x612&w=0&k=20&c=ffwIth6c8Z5JIF2sRsZFEP3TExJ3NG41QLnp3qDNNCQ="
+          src="https://thumbs.dreamstime.com/z/money-transfer-concept-laptop-woman-using-screen-282406512.jpg"
           height="400" width="500" alt="emp-create">
       </div>
     </div>
     <!--   Second Box for  Emp Information    -->
     <div class="row featurette rounded-bottom-1 bg-body-secondary">
       <div class="col-md-6 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Check Your Balance<span class="text-body-secondary">See for
-            yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-          layout would work with some actual real-world content in place.</p>
+        <h2 class="featurette-heading fw-normal lh-1">Check Your Balance<span class="text-body-secondary"> In your Account</span></h2>
+        <p class="lead">You can check your balance here for confirming how much money you have left.</p>
           <a class="btn btn-primary" href="customerCtrls?action=checkAmount&CustId=${mainUser}"  role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
           </svg> Check Balance</a>
       </div>
       <div class="col-md-5 order-md-1">
         <img
-          src="https://media.gettyimages.com/id/2156838176/photo/team-discussing-strategy-in-office-meeting.jpg?s=612x612&w=0&k=20&c=DLCYaHBimz1OPKMFZIjebFxaLnIQkNzgqZ3yhh1eaxw="
+          src="https://www.shutterstock.com/image-photo/balance-banking-finance-homepage-concept-260nw-380931865.jpg"
           height="400" width="500" alt="">
       </div>
     </div>
     <!--   Third Box for customer Details...-->
     <div class="row featurette rounded-bottom-1 bg-body-secondary">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Withdraw Money<span class="text-body-secondary">It’ll
-            blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
+        <h2 class="featurette-heading fw-normal lh-1">Withdraw Your Money<span class="text-body-secondary"> Here
+            </span></h2>
+        <p class="lead">You can withdraw your money by entering your password.
         </p>
         <a class="btn btn-primary" href="customerCtrls?action=startWithdraw&CustId=${mainUser}" role="button">Withdraw Money <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
@@ -239,7 +238,7 @@ if(session.getAttribute("mainUser") == null)
       </div>
       <div class="col-md-5">
         <img
-          src="https://media.gettyimages.com/id/1282395437/photo/sign-here.jpg?s=612x612&w=0&k=20&c=9Rclnox25e6f-WDM4KE_SxgL1y_28QzHRnwi0maVXB8="
+          src="https://thumbs.dreamstime.com/b/earn-money-1158841.jpg"
           height="400" width="500" alt="cust-info">
       </div>
     </div>
@@ -251,7 +250,9 @@ if(session.getAttribute("mainUser") == null)
     <p class="float-end"><a href="#">Back to top<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
     </svg></a></p>
-    <p>© 2024–2025 RGSDSA Bank, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    <p>
+			© 2024–2025 RGSDSA Bank, Inc. · <a href="privacy.html">Privacy</a> · <a href="term.html">Terms</a>
+		</p>
   </footer>
 
   <!--  Script   -->
